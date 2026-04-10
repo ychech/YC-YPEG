@@ -1,0 +1,22 @@
+[
+  {
+    "text": "Home",
+    "link": "/en/",
+    "activeMatch": "^/en/$"
+  },
+  {
+    "text": "Guide",
+    "link": "/en/guide/prompt-engineering/",
+    "activeMatch": "/en/guide/"
+  },
+  {
+    "text": "LangChain",
+    "link": "/guide/langchain/",
+    "activeMatch": "/guide/langchain/"
+  },
+  {
+    "text": "API",
+    "link": "/en/api/",
+    "activeMatch": "/en/api/"
+  }
+]

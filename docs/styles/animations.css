@@ -1,0 +1,250 @@
+/* 页面转场动画 */
+
+/* 页面切换淡入效果 */
+.rp-doc-content {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 侧边栏菜单项悬停动画 */
+.rp-sidebar-link__item {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rp-sidebar-link__item:hover {
+  transform: translateX(4px);
+}
+
+/* 导航栏链接悬停效果 */
+.rp-nav-menu__item {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.rp-nav-menu__item::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--rp-c-brand);
+  transition: width 0.3s ease;
+}
+
+.rp-nav-menu__item:hover::after,
+.rp-nav-menu__item--active::after {
+  width: 100%;
+}
+
+/* 按钮悬停动画 */
+.rp-button,
+.rp-home-hero .actions .button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rp-button:hover,
+.rp-home-hero .actions .button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px -8px var(--rp-c-brand-tint);
+}
+
+/* 特性卡片悬停动画 */
+.rp-home-feature {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rp-home-feature:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
+}
+
+/* 搜索框焦点动画 */
+.rp-search-button {
+  transition: all 0.3s ease;
+}
+
+.rp-search-button:focus,
+.rp-search-button:hover {
+  transform: scale(1.02);
+  border-color: var(--rp-c-brand);
+}
+
+/* 代码块展开动画 */
+.rp-doc-content pre {
+  transition: all 0.3s ease;
+}
+
+/* 表格行动画 */
+.rp-doc-content tr {
+  transition: background-color 0.2s ease;
+}
+
+/* 提示框动画 */
+.rspress-directive {
+  animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 页面加载骨架屏动画 */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* 平滑滚动 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 大纲导航动画 */
+.rp-toc__link {
+  transition: all 0.2s ease;
+  border-left: 2px solid transparent;
+  padding-left: 12px;
+}
+
+.rp-toc__link:hover {
+  padding-left: 16px;
+  color: var(--rp-c-brand);
+}
+
+.rp-toc__link--active {
+  border-left-color: var(--rp-c-brand);
+  padding-left: 16px;
+}
+
+/* 主题切换按钮动画 */
+.yc-indicator {
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* 下拉面板展开动画 */
+.yc-dropdown {
+  animation: dropdownIn 0.25s ease-out;
+}
+
+@keyframes dropdownIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 颜色圆点悬停动画 */
+.yc-dot {
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.yc-dot:hover {
+  transform: scale(1.25);
+}
+
+/* 图标旋转动画 */
+.rp-home-feature .icon {
+  transition: transform 0.5s ease;
+}
+
+.rp-home-feature:hover .icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* 链接下划线动画 */
+.rp-doc-content a {
+  position: relative;
+  text-decoration: none;
+}
+
+.rp-doc-content a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--rp-c-brand);
+  transition: width 0.3s ease;
+}
+
+.rp-doc-content a:hover::after {
+  width: 100%;
+}
+
+/* 图片悬停缩放 */
+.rp-doc-content img {
+  transition: transform 0.3s ease;
+}
+
+.rp-doc-content img:hover {
+  transform: scale(1.02);
+}
+
+/* 卡片淡入动画 -  staggered */
+.rp-home-features .grid > * {
+  opacity: 0;
+  animation: cardFadeIn 0.5s ease-out forwards;
+}
+
+.rp-home-features .grid > *:nth-child(1) { animation-delay: 0.1s; }
+.rp-home-features .grid > *:nth-child(2) { animation-delay: 0.2s; }
+.rp-home-features .grid > *:nth-child(3) { animation-delay: 0.3s; }
+.rp-home-features .grid > *:nth-child(4) { animation-delay: 0.4s; }
+.rp-home-features .grid > *:nth-child(5) { animation-delay: 0.5s; }
+.rp-home-features .grid > *:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 深色模式切换过渡 */
+html,
+html *,
+html *::before,
+html *::after {
+  transition: background-color 0.3s ease,
+              border-color 0.3s ease,
+              color 0.3s ease;
+}
+
+/* 排除特定元素 */
+html .no-transition,
+html .no-transition *,
+html .no-transition *::before,
+html .no-transition *::after {
+  transition: none !important;
+}

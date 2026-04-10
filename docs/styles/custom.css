@@ -1,0 +1,483 @@
+/* YC-提示词指南 - 主题色样式 */
+
+/* 主题切换器 */
+#yc-theme-switcher {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 10000;
+  background: var(--rp-c-bg);
+  border: 1px solid var(--rp-c-divider-light);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#yc-theme-switcher h4 {
+  margin: 0;
+  font-size: 12px;
+  color: var(--rp-c-text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.yc-theme-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: inline-block;
+  margin: 0 4px;
+}
+
+.yc-theme-btn:hover {
+  transform: scale(1.15);
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  #yc-theme-switcher {
+    top: auto;
+    bottom: 20px;
+    right: 20px;
+  }
+}
+/* 页面转场动画 */
+
+/* 页面切换淡入效果 */
+.rp-doc-content {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 侧边栏菜单项悬停动画 */
+.rp-sidebar-link__item {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rp-sidebar-link__item:hover {
+  transform: translateX(4px);
+}
+
+/* 导航栏链接悬停效果 */
+.rp-nav-menu__item {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.rp-nav-menu__item::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--rp-c-brand);
+  transition: width 0.3s ease;
+}
+
+.rp-nav-menu__item:hover::after,
+.rp-nav-menu__item--active::after {
+  width: 100%;
+}
+
+/* 按钮悬停动画 */
+.rp-button,
+.rp-home-hero .actions .button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rp-button:hover,
+.rp-home-hero .actions .button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px -8px var(--rp-c-brand-tint);
+}
+
+/* 特性卡片悬停动画 */
+.rp-home-feature {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rp-home-feature:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
+}
+
+/* 搜索框焦点动画 */
+.rp-search-button {
+  transition: all 0.3s ease;
+}
+
+.rp-search-button:focus,
+.rp-search-button:hover {
+  transform: scale(1.02);
+  border-color: var(--rp-c-brand);
+}
+
+/* 代码块展开动画 */
+.rp-doc-content pre {
+  transition: all 0.3s ease;
+}
+
+/* 表格行动画 */
+.rp-doc-content tr {
+  transition: background-color 0.2s ease;
+}
+
+/* 提示框动画 */
+.rspress-directive {
+  animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 页面加载骨架屏动画 */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* 平滑滚动 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 强制显示左侧目录（不通过左上“菜单”按钮展开） */
+.rp-doc-layout__menu {
+  display: none !important;
+}
+
+.rp-doc-layout__sidebar {
+  display: block !important;
+  transform: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: sticky !important;
+  top: 56px !important;
+  width: 280px !important;
+  min-width: 280px !important;
+  max-width: 280px !important;
+}
+
+.rp-doc-layout__container {
+  align-items: flex-start;
+}
+
+.rp-doc-layout__doc {
+  min-width: 0;
+}
+
+.yc-home-pkg-tabs {
+  margin-top: 16px;
+  max-width: 520px;
+}
+
+.yc-home-section {
+  padding: 0 24px;
+  margin-top: 72px;
+}
+
+.yc-home-section__container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.yc-home-section__title {
+  margin: 0;
+  text-align: center;
+  font-size: 40px;
+  line-height: 1.2;
+}
+
+.yc-home-section__subtitle {
+  margin: 12px 0 0;
+  text-align: center;
+  color: var(--rp-c-text-2);
+}
+
+.yc-home-section .rp-home-feature {
+  margin-top: 28px;
+}
+
+.yc-home-section .rp-home-feature__card {
+  border-radius: 0;
+}
+
+.yc-hero-motion {
+  position: relative;
+  width: 640px;
+  height: 448px;
+  max-width: min(640px, 100%);
+  border-radius: 18px;
+  overflow: visible;
+  margin-left: 42px;
+  --mx: 0;
+  --my: 0;
+}
+
+.yc-hero-motion__bg {
+  position: absolute;
+  inset: -24px;
+  border-radius: 24px;
+  background: radial-gradient(60% 60% at 28% 22%, rgba(20, 97, 152, 0.65) 0%, rgba(10, 14, 39, 0) 68%),
+    radial-gradient(55% 55% at 84% 68%, rgba(236, 72, 153, 0.28) 0%, rgba(10, 14, 39, 0) 70%),
+    radial-gradient(45% 45% at 65% 20%, rgba(249, 115, 22, 0.22) 0%, rgba(10, 14, 39, 0) 70%);
+  transform: translate(calc(var(--mx) * -10px), calc(var(--my) * -8px));
+  transition: transform 120ms ease-out;
+  filter: blur(6px);
+  opacity: 1;
+  pointer-events: none;
+}
+
+.yc-hero-motion__window-wrap {
+  position: absolute;
+  right: 0;
+  top: 6px;
+  width: 640px;
+  max-width: 100%;
+  transform: translate(calc(var(--mx) * -16px), calc(var(--my) * -12px));
+  transition: transform 120ms ease-out;
+  will-change: transform;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.yc-hero-motion__window-glow {
+  position: absolute;
+  inset: -16px;
+  border-radius: 22px;
+  background: radial-gradient(75% 80% at 26% 28%, rgba(20, 97, 152, 0.36) 0%, rgba(20, 97, 152, 0) 58%),
+    radial-gradient(65% 70% at 76% 68%, rgba(236, 72, 153, 0.20) 0%, rgba(236, 72, 153, 0) 60%),
+    radial-gradient(55% 65% at 62% 22%, rgba(249, 115, 22, 0.16) 0%, rgba(249, 115, 22, 0) 62%);
+  filter: blur(10px);
+  opacity: 0.9;
+}
+
+.yc-hero-motion__window-glow::before,
+.yc-hero-motion__window-glow::after {
+  content: '';
+  position: absolute;
+  inset: -18px;
+  border-radius: 26px;
+  filter: blur(16px);
+  opacity: 0.7;
+}
+
+.yc-hero-motion__window-glow::before {
+  background: radial-gradient(60% 70% at 18% 65%, rgba(20, 97, 152, 0.22) 0%, rgba(20, 97, 152, 0) 62%);
+  transform: rotate(-6deg);
+}
+
+.yc-hero-motion__window-glow::after {
+  background: radial-gradient(60% 70% at 88% 38%, rgba(236, 72, 153, 0.16) 0%, rgba(236, 72, 153, 0) 60%);
+  transform: rotate(7deg);
+}
+
+.yc-hero-motion__window {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35), 0 10px 28px rgba(0, 0, 0, 0.25);
+  filter: drop-shadow(0 0 22px rgba(20, 97, 152, 0.22));
+  pointer-events: none;
+  user-select: none;
+}
+
+.yc-hero-motion__mascot {
+  position: absolute;
+  right: -70px;
+  bottom: -128px;
+  width: 420px;
+  height: auto;
+  transform: translate(calc(var(--mx) * -14px), calc(var(--my) * -10px));
+  transition: transform 120ms ease-out;
+  will-change: transform;
+  pointer-events: none;
+  user-select: none;
+  animation: yc-float 3.2s ease-in-out infinite;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.25)) drop-shadow(0 0 22px rgba(249, 115, 22, 0.18));
+  z-index: 2;
+}
+
+@keyframes yc-float {
+  0%,
+  100% {
+    transform: translate(calc(var(--mx) * -14px), calc(var(--my) * -10px)) translateY(0);
+  }
+  50% {
+    transform: translate(calc(var(--mx) * -14px), calc(var(--my) * -10px)) translateY(-10px);
+  }
+}
+
+@media (max-width: 960px) {
+  .yc-hero-motion__mascot {
+    right: -70px;
+    width: 360px;
+    bottom: -110px;
+  }
+}
+
+/* 首页头像放大（原图留白较多，看起来偏小） */
+.rp-home-hero__image-img {
+  object-fit: contain;
+  transform: scale(1.15);
+  transform-origin: center;
+}
+
+/* 大纲导航动画 */
+.rp-toc__link {
+  transition: all 0.2s ease;
+  border-left: 2px solid transparent;
+  padding-left: 12px;
+}
+
+.rp-toc__link:hover {
+  padding-left: 16px;
+  color: var(--rp-c-brand);
+}
+
+.rp-toc__link--active {
+  border-left-color: var(--rp-c-brand);
+  padding-left: 16px;
+}
+
+/* 主题切换按钮动画 */
+.yc-indicator {
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* 下拉面板展开动画 */
+.yc-dropdown {
+  animation: dropdownIn 0.25s ease-out;
+}
+
+@keyframes dropdownIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 颜色圆点悬停动画 */
+.yc-dot {
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.yc-dot:hover {
+  transform: scale(1.25);
+}
+
+/* 图标旋转动画 */
+.rp-home-feature .icon {
+  transition: transform 0.5s ease;
+}
+
+.rp-home-feature:hover .icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* 链接下划线动画 */
+.rp-doc-content a {
+  position: relative;
+  text-decoration: none;
+}
+
+.rp-doc-content a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--rp-c-brand);
+  transition: width 0.3s ease;
+}
+
+.rp-doc-content a:hover::after {
+  width: 100%;
+}
+
+/* 图片悬停缩放 */
+.rp-doc-content img {
+  transition: transform 0.3s ease;
+}
+
+.rp-doc-content img:hover {
+  transform: scale(1.02);
+}
+
+/* 卡片淡入动画 -  staggered */
+.rp-home-features .grid > * {
+  opacity: 0;
+  animation: cardFadeIn 0.5s ease-out forwards;
+}
+
+.rp-home-features .grid > *:nth-child(1) { animation-delay: 0.1s; }
+.rp-home-features .grid > *:nth-child(2) { animation-delay: 0.2s; }
+.rp-home-features .grid > *:nth-child(3) { animation-delay: 0.3s; }
+.rp-home-features .grid > *:nth-child(4) { animation-delay: 0.4s; }
+.rp-home-features .grid > *:nth-child(5) { animation-delay: 0.5s; }
+.rp-home-features .grid > *:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 深色模式切换过渡 */
+html,
+html *,
+html *::before,
+html *::after {
+  transition: background-color 0.3s ease,
+              border-color 0.3s ease,
+              color 0.3s ease;
+}
+
+/* 排除特定元素 */
+html .no-transition,
+html .no-transition *,
+html .no-transition *::before,
+html .no-transition *::after {
+  transition: none !important;
+}

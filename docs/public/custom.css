@@ -1,0 +1,424 @@
+/* Rspress V2 自定义主题样式 */
+
+/* ========================================
+   首页 Hero 区域样式
+   ======================================== */
+
+/* Hero 背景渐变 */
+.rp-home-hero {
+  background: linear-gradient(135deg, 
+    var(--rp-c-bg) 0%, 
+    var(--rp-c-bg-soft) 50%,
+    var(--rp-c-bg-mute) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hero 背景装饰 */
+.rp-home-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, var(--rp-c-brand) 0%, transparent 70%);
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+/* Hero 标题样式 */
+.rp-home-hero .name {
+  background: linear-gradient(135deg, var(--rp-c-brand) 0%, var(--rp-c-brand-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hero 副标题 */
+.rp-home-hero .text {
+  color: var(--rp-c-text-1);
+  font-weight: 600;
+}
+
+/* Hero 描述 */
+.rp-home-hero .tagline {
+  color: var(--rp-c-text-2);
+  font-size: 1.2rem;
+  max-width: 600px;
+  line-height: 1.8;
+}
+
+/* Hero 按钮样式 */
+.rp-home-hero .actions .button {
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px 0 var(--rp-c-brand-soft);
+}
+
+.rp-home-hero .actions .button.brand {
+  background: linear-gradient(135deg, var(--rp-c-brand) 0%, var(--rp-c-brand-light) 100%);
+  border: none;
+}
+
+.rp-home-hero .actions .button.brand:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px 0 var(--rp-c-brand-soft);
+}
+
+.rp-home-hero .actions .button.alt {
+  border: 1px solid var(--rp-c-divider);
+  background: var(--rp-c-bg-soft);
+}
+
+.rp-home-hero .actions .button.alt:hover {
+  border-color: var(--rp-c-brand);
+  color: var(--rp-c-brand);
+}
+
+/* ========================================
+   Features 特性卡片样式
+   ======================================== */
+
+/* Features 容器 */
+.rp-home-features {
+  background: var(--rp-c-bg);
+  padding: 4rem 0;
+}
+
+/* 单个 Feature 卡片 */
+.rp-home-feature {
+  background: linear-gradient(145deg, var(--rp-c-bg-soft) 0%, var(--rp-c-bg-mute) 100%);
+  border: 1px solid var(--rp-c-divider);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 卡片悬停效果 */
+.rp-home-feature:hover {
+  transform: translateY(-4px);
+  border-color: var(--rp-c-brand-soft);
+  box-shadow: 0 12px 40px -12px var(--rp-c-brand-soft);
+}
+
+/* 卡片顶部渐变装饰条 */
+.rp-home-feature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--rp-c-brand) 0%, var(--rp-c-brand-light) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.rp-home-feature:hover::before {
+  opacity: 1;
+}
+
+/* Feature 图标容器 */
+.rp-home-feature .icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--rp-c-brand-soft) 0%, transparent 100%);
+  border-radius: 12px;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Feature 标题 */
+.rp-home-feature .title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--rp-c-text-1);
+  margin-bottom: 0.75rem;
+}
+
+/* Feature 描述 */
+.rp-home-feature .details {
+  color: var(--rp-c-text-2);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+/* ========================================
+   导航栏样式优化
+   ======================================== */
+
+/* 导航栏背景 */
+.rp-nav {
+  background: rgba(var(--rp-c-bg), 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rp-c-divider);
+}
+
+/* 导航链接 */
+.rp-nav-menu__item {
+  color: var(--rp-c-text-2);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.rp-nav-menu__item:hover {
+  color: var(--rp-c-brand);
+}
+
+.rp-nav-menu__item--active {
+  color: var(--rp-c-brand);
+}
+
+/* 搜索框 */
+.rp-search-button {
+  background: var(--rp-c-bg-soft);
+  border: 1px solid var(--rp-c-divider);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.rp-search-button:hover {
+  border-color: var(--rp-c-brand);
+  background: var(--rp-c-bg-mute);
+}
+
+/* ========================================
+   侧边栏样式优化
+   ======================================== */
+
+/* 侧边栏容器 */
+.rp-sidebar {
+  background: var(--rp-c-bg);
+  border-right: 1px solid var(--rp-c-divider);
+}
+
+/* 侧边栏分组标题 */
+.rp-sidebar-group__title {
+  color: var(--rp-c-text-1);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1rem 1.5rem 0.5rem;
+}
+
+/* 侧边栏链接 */
+.rp-sidebar-link__item {
+  color: var(--rp-c-text-2);
+  border-radius: 6px;
+  margin: 0.25rem 0.75rem;
+  padding: 0.5rem 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.rp-sidebar-link__item:hover {
+  background: var(--rp-c-bg-soft);
+  color: var(--rp-c-text-1);
+}
+
+.rp-sidebar-link__item--active {
+  background: var(--rp-c-brand-soft);
+  color: var(--rp-c-brand);
+  font-weight: 500;
+}
+
+/* ========================================
+   文档内容区域样式
+   ======================================== */
+
+/* 文档标题 */
+.rp-doc-content h1 {
+  color: var(--rp-c-text-1);
+  font-weight: 700;
+  border-bottom: 1px solid var(--rp-c-divider);
+  padding-bottom: 0.75rem;
+}
+
+.rp-doc-content h2 {
+  color: var(--rp-c-text-1);
+  font-weight: 600;
+  margin-top: 2.5rem;
+}
+
+.rp-doc-content h3 {
+  color: var(--rp-c-text-1);
+  font-weight: 600;
+}
+
+/* 段落 */
+.rp-doc-content p {
+  color: var(--rp-c-text-2);
+  line-height: 1.8;
+}
+
+/* 代码块 */
+.rp-doc-content pre {
+  background: var(--rp-c-bg-soft);
+  border: 1px solid var(--rp-c-divider);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.rp-doc-content code {
+  color: var(--rp-c-text-1);
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* 行内代码 */
+.rp-doc-content :not(pre) > code {
+  background: var(--rp-c-bg-mute);
+  color: var(--rp-c-brand);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.875em;
+}
+
+/* 引用块 */
+.rp-doc-content blockquote {
+  background: var(--rp-c-bg-soft);
+  border-left: 4px solid var(--rp-c-brand);
+  border-radius: 0 8px 8px 0;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.rp-doc-content blockquote p {
+  margin: 0;
+  color: var(--rp-c-text-2);
+}
+
+/* 自定义容器 */
+.rp-doc-content .rspress-directive {
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.rp-doc-content .rspress-directive.tip {
+  background: rgba(var(--rp-c-brand), 0.1);
+  border: 1px solid var(--rp-c-brand-soft);
+}
+
+.rp-doc-content .rspress-directive.warning {
+  background: rgba(255, 197, 23, 0.1);
+  border: 1px solid rgba(255, 197, 23, 0.3);
+}
+
+.rp-doc-content .rspress-directive.danger {
+  background: rgba(244, 63, 94, 0.1);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+/* 表格 */
+.rp-doc-content table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  border: 1px solid var(--rp-c-divider);
+  overflow: hidden;
+}
+
+.rp-doc-content th {
+  background: var(--rp-c-bg-soft);
+  color: var(--rp-c-text-1);
+  font-weight: 600;
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid var(--rp-c-divider);
+}
+
+.rp-doc-content td {
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid var(--rp-c-divider);
+}
+
+.rp-doc-content tr:last-child td {
+  border-bottom: none;
+}
+
+/* ========================================
+   页脚样式
+   ======================================== */
+
+.rp-footer {
+  background: var(--rp-c-bg-soft);
+  border-top: 1px solid var(--rp-c-divider);
+  padding: 2rem 0;
+}
+
+.rp-footer .message,
+.rp-footer .copyright {
+  color: var(--rp-c-text-3);
+  font-size: 0.875rem;
+}
+
+/* ========================================
+   大纲侧边栏
+   ======================================== */
+
+.rp-toc {
+  background: var(--rp-c-bg);
+}
+
+.rp-toc__header {
+  color: var(--rp-c-text-1);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.rp-toc__link {
+  color: var(--rp-c-text-3);
+  transition: color 0.2s ease;
+}
+
+.rp-toc__link:hover {
+  color: var(--rp-c-text-2);
+}
+
+.rp-toc__link--active {
+  color: var(--rp-c-brand);
+}
+
+/* ========================================
+   滚动条美化
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--rp-c-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--rp-c-divider);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--rp-c-text-3);
+}
+
+/* ========================================
+   深色模式特殊调整
+   ======================================== */
+
+.dark .rp-home-feature {
+  background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+}
+
+.dark .rp-doc-content pre {
+  background: #1a1a1a;
+}

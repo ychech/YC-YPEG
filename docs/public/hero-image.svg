@@ -1,0 +1,48 @@
+<svg width="600" height="420" viewBox="0 0 600 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="600" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B0B0B"/>
+      <stop offset="1" stop-color="#0A1020"/>
+    </linearGradient>
+    <linearGradient id="topbar" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0F1115"/>
+      <stop offset="1" stop-color="#121826"/>
+    </linearGradient>
+    <linearGradient id="codebg" x1="0" y1="0" x2="600" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0E0F12"/>
+      <stop offset="1" stop-color="#0B0C10"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="40" y1="70" x2="560" y2="340" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.10"/>
+      <stop offset="0.35" stop-color="#ffffff" stop-opacity="0.03"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softShadow" x="-40" y="-40" width="680" height="520" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <g filter="url(#softShadow)">
+    <rect width="600" height="420" rx="20" fill="url(#bg)"/>
+    <rect x="1" y="1" width="598" height="418" rx="20" fill="none" stroke="#ffffff" stroke-opacity="0.06"/>
+    <rect x="20" y="18" width="560" height="50" rx="14" fill="url(#topbar)"/>
+    <rect x="20" y="18" width="560" height="50" rx="14" fill="none" stroke="#ffffff" stroke-opacity="0.05"/>
+    <circle cx="42" cy="38" r="6" fill="#ff5f56"/>
+    <circle cx="62" cy="38" r="6" fill="#ffbd2e"/>
+    <circle cx="82" cy="38" r="6" fill="#27c93f"/>
+    <text x="112" y="42" fill="#9aa4b2" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12">关于本指南</text>
+
+    <rect x="20" y="86" width="560" height="314" rx="16" fill="url(#codebg)" stroke="#1F2633" stroke-opacity="0.8"/>
+    <rect x="20" y="86" width="560" height="314" rx="16" fill="url(#sheen)"/>
+    <rect x="21.5" y="87.5" width="557" height="311" rx="15" fill="none" stroke="#ffffff" stroke-opacity="0.05"/>
+
+    <text x="44" y="124" fill="#cbd5e1" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13">
+      <tspan x="44" dy="0" fill="#7dd3fc">#</tspan><tspan fill="#e2e8f0"> 本指南说明</tspan>
+      <tspan x="44" dy="22" fill="#94a3b8">本指南综合了本人工作中的实战经验，并且结合了目前主流的提示词文档，</tspan>
+      <tspan x="44" dy="20" fill="#94a3b8">汇集百家之长，取其精华，并且透彻的分析了一些案例。</tspan>
+      <tspan x="44" dy="20" fill="#94a3b8">但是由于 AI 时代发展迅速，难免会有一些过时的概念不能及时更新</tspan>
+      <tspan x="44" dy="20" fill="#94a3b8">（当然也会不断更新文档的）。</tspan>
+      <tspan x="44" dy="20" fill="#94a3b8">另外，本文档仅为个人编写，难免存在疏漏与错误，加之个人水平有限，</tspan>
+      <tspan x="44" dy="20" fill="#94a3b8">还请各位读者多多包涵、不吝指正。</tspan>
+    </text>
+  </g>
+</svg>
