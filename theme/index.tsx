@@ -8,6 +8,7 @@ import { HeroMotion } from './components/HeroMotion';
 import { useHead } from '@unhead/react';
 
 const themes = {
+  blackgold: { brand: '#C89A3C', light: '#E9C46A', dark: '#8C5A1C', name: '黑金' },
   blue: { brand: '#0095ff', light: '#33adff', dark: '#0077ff', name: '蓝色' },
   purple: { brand: '#8b5cf6', light: '#a78bfa', dark: '#7c3aed', name: '紫色' },
   green: { brand: '#10b981', light: '#34d399', dark: '#059669', name: '绿色' },
@@ -17,13 +18,18 @@ const themes = {
 };
 
 function ThemeColorSwitcher() {
-  const [current, setCurrent] = useState('blue');
+  const [current, setCurrent] = useState('blackgold');
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem('yc-theme') || 'blue';
+    const v2 = 'yc-theme-v2';
+    const savedV2 = localStorage.getItem(v2);
+    const savedV1 = localStorage.getItem('yc-theme');
+    const saved = savedV2 || savedV1 || 'blackgold';
+    const normalized = !savedV2 && savedV1 === 'blue' ? 'blackgold' : saved;
     setCurrent(saved);
-    applyTheme(saved);
+    applyTheme(normalized);
+    localStorage.setItem(v2, normalized);
   }, []);
 
   const applyTheme = (name: string) => {
@@ -191,49 +197,49 @@ function HomeLayout(homeProps: any) {
     {
       title: '指南概览',
       details: '从整体结构开始，快速建立提示词工程的知识地图。',
-      icon: '🧭',
+      icon: '/feat-1.png',
       link: '/zh/guide/prompt-engineering/',
     },
     {
       title: '文本生成控制参数',
       details: 'Temperature、Top_p 等参数如何影响随机性与稳定性。',
-      icon: '🎚️',
+      icon: '/feat-2.png',
       link: '/zh/guide/prompt-engineering/text-generation-params',
     },
     {
       title: '提示词结构',
       details: '角色 / 指令 / 约束 / 输出格式，让提示词更清晰可控。',
-      icon: '🧩',
+      icon: '/feat-3.png',
       link: '/zh/guide/prompt-engineering/prompt-structure',
     },
     {
       title: '评估与迭代',
       details: '建立评估集与回归流程，避免越改越差。',
-      icon: '✅',
+      icon: '/feat-4.png',
       link: '/zh/guide/prompt-engineering/evaluation-and-iteration',
     },
     {
       title: '常用提示技术',
       details: '零样本 / 少样本 / CoT 等常用技巧与适用场景。',
-      icon: '🧠',
+      icon: '/feat-1.png',
       link: '/zh/guide/prompt-engineering/prompt-techniques',
     },
     {
       title: 'ReAct（工具调用）',
       details: '把思考和动作分离，适配工具与外部系统。',
-      icon: '🔗',
+      icon: '/feat-2.png',
       link: '/zh/guide/prompt-engineering/react',
     },
     {
       title: 'DSP（方向性刺激）',
       details: '用方向性线索提升摘要/改写/抽取的贴合度与稳定性。',
-      icon: '🎯',
+      icon: '/feat-3.png',
       link: '/zh/guide/prompt-engineering/dsp',
     },
     {
       title: '安全与校验',
       details: '提示词注入与防护、幻觉识别与三角验证。',
-      icon: '🛡️',
+      icon: '/feat-4.png',
       link: '/zh/guide/prompt-engineering/prompt-security',
     },
   ];
@@ -246,8 +252,20 @@ function HomeLayout(homeProps: any) {
         image={<HeroMotion />}
         afterHeroActions={
           isZh ? (
-            <div className="yc-home-pkg-tabs">
-              <PackageManagerTabs command="create rspress@latest" />
+            <div className="yc-home-pkg-tabs" style={{ display: 'flex', justifyContent: 'center', marginTop: '24px' }}>
+              <div style={{ width: '100%', maxWidth: '500px' }}>
+                <PackageManagerTabs 
+                  command={{
+                    git: 'git clone https://github.com/ychech/YC-YPEG.git',
+                  } as any} 
+                  additionalTabs={[
+                    {
+                      tool: 'git',
+                      icon: <svg viewBox="0 0 128 128" width="16" height="16"><path fill="#F1502F" d="M126.315 62.5L65.488 1.674a6.67 6.67 0 0 0-9.432 0L42.274 15.456l13.606 13.605c3.551-1.12 7.643-.223 10.373 2.508c3.153 3.153 3.823 7.82 2.012 11.644l13.064 13.064c3.823-1.81 8.491-1.14 11.644 2.012c4.116 4.116 4.116 10.79 0 14.907c-4.116 4.116-10.79 4.116-14.907 0c-3.153-3.152-3.823-7.82-2.012-11.644L63.535 49.034v33.486c1.657 1.572 2.701 3.824 2.701 6.347c0 4.773-3.87 8.643-8.643 8.643c-4.773 0-8.643-3.87-8.643-8.643c0-2.616 1.139-4.945 2.91-6.52V42.502c-1.77-1.575-2.91-3.904-2.91-6.52c0-1.89.605-3.639 1.636-5.05L36.31 16.657L1.685 61.282a6.67 6.67 0 0 0 0 9.432l60.827 60.827a6.67 6.67 0 0 0 9.432 0l54.37-54.37v-.24a6.67 6.67 0 0 0 0-9.432z"/></svg>
+                    }
+                  ]}
+                />
+              </div>
             </div>
           ) : null
         }

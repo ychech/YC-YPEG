@@ -10,6 +10,7 @@ export default defineConfig({
     light: '/rspress-light-logo.png',
     dark: '/rspress-dark-logo.png',
   },
+  logoText: 'YPEG',
   logoHref: '/zh/',
   
   themeConfig: {
@@ -44,7 +45,7 @@ export default defineConfig({
     },
     
     socialLinks: [
-      { icon: 'github', mode: 'link', content: 'https://github.com/your-org/your-repo' },
+      { icon: 'github', mode: 'link', content: 'https://github.com/ychech/YC-YPEG' },
     ],
     
     footer: {

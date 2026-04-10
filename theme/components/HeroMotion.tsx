@@ -53,7 +53,33 @@ export function HeroMotion() {
       <div className="yc-hero-motion__bg" />
       <div className="yc-hero-motion__window-wrap">
         <div className="yc-hero-motion__window-glow" />
-        <img className="yc-hero-motion__window" src="/hero-image.svg" alt="" draggable={false} />
+        <div className="yc-hero-window" aria-hidden="true">
+          <div className="yc-hero-window__topbar">
+            <div className="yc-hero-window__dots">
+              <span className="yc-hero-window__dot yc-hero-window__dot--red" />
+              <span className="yc-hero-window__dot yc-hero-window__dot--yellow" />
+              <span className="yc-hero-window__dot yc-hero-window__dot--green" />
+            </div>
+            <div className="yc-hero-window__title">关于本指南</div>
+            <div className="yc-hero-window__pill" />
+          </div>
+          <div className="yc-hero-window__body">
+            <div className="yc-hero-window__content">
+              <div className="yc-hero-window__line yc-hero-window__line--h">本指南说明</div>
+              <div className="yc-hero-window__line">汇集实战经验与主流提示词资料，取其精华，并结合案例拆解。</div>
+              <div className="yc-hero-window__line">AI 发展很快，难免存在过时与疏漏；文档会持续更新。</div>
+              <div className="yc-hero-window__line">个人编写，难免疏漏，欢迎指正。</div>
+            </div>
+            <div className="yc-hero-window__spacer" />
+            <div className="yc-hero-window__loading-block">
+              <div className="yc-hero-window__sk-line yc-hero-window__sk-line--brand" />
+              <div className="yc-hero-window__sk-line yc-hero-window__sk-line--w72" />
+              <div className="yc-hero-window__sk-line yc-hero-window__sk-line--w88" />
+              <div className="yc-hero-window__sk-line yc-hero-window__sk-line--w84" />
+              <div className="yc-hero-window__sk-line yc-hero-window__sk-line--w60" />
+            </div>
+          </div>
+        </div>
       </div>
       <img className="yc-hero-motion__mascot" src="/YC-fox.png" alt="YPEG" draggable={false} />
     </div>
