@@ -19,7 +19,7 @@ export default defineConfig({
     // 导航配置
     nav: [
       { text: '提示词指南', link: '/zh/guide/prompt-engineering/', position: 'left' },
-      { text: 'API', link: '/zh/api/commands', position: 'left' },
+      { text: '更新日志', link: '/zh/changelog', position: 'left' },
     ],
     
     // 侧边栏配置
