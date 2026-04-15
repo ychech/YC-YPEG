@@ -21,7 +21,7 @@
 
   {
     "type": "section-header",
-    "label": "初级阶段"
+    "label": "技术结构基石"
   },
   {
     "type": "dir",
@@ -46,7 +46,7 @@
   },
   {
     "type": "section-header",
-    "label": "中级阶段"
+    "label": "思维能力设计"
   },
   {
     "type": "dir",
@@ -71,7 +71,7 @@
   },
   {
     "type": "section-header",
-    "label": "高级阶段"
+    "label": "安全突破防守"
   },
   {
     "type": "dir",

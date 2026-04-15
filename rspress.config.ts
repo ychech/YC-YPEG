@@ -35,8 +35,8 @@ export default defineConfig({
     ],
     
     footer: {
-      message: '© 2026 YC Prompt Guide',
-      copyright: 'Built with Rspress',
+      message: '版权所有 © 2026 逸尘 · 仅限非商业使用与分享（CC BY-NC 4.0）· <a class="rp-link" href="/license">许可声明</a>',
+      copyright: '',
     },
   },
   

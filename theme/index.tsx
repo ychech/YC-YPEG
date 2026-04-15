@@ -1,7 +1,8 @@
 import {
   Layout as BasicLayout,
+  Banner,
 } from '@rspress/core/theme-original';
-import { HomeBackground, HomeFeature, HomeFooter, HomeHero, PackageManagerTabs } from '@rspress/core/theme';
+import { HomeBackground, HomeFooter, HomeHero, PackageManagerTabs } from '@rspress/core/theme';
 import { useFrontmatter, usePage } from '@rspress/core/runtime';
 import { useEffect, useState } from 'react';
 import { HeroMotion } from './components/HeroMotion';
@@ -312,7 +313,7 @@ function HomeLayout(homeProps: any) {
             <div className="yc-home-tiles__grid">
               {tileFeatures.map((f: any) => {
                 return (
-                  <a key={f.title} href={f.link} className="yc-tile yc-reveal">
+                  <a key={f.title} href={f.link || '#'} className="yc-tile yc-reveal">
                     {f.icon ? <img className="yc-tile__icon" src={f.icon} alt="" /> : null}
                     <div className="yc-tile__title">{f.title}</div>
                     <div className="yc-tile__desc">{f.details}</div>
@@ -329,7 +330,27 @@ function HomeLayout(homeProps: any) {
           <div className="yc-home-section__container">
             <h2 className="yc-home-section__title">指南导航</h2>
             <p className="yc-home-section__subtitle">按主题快速进入你需要的章节</p>
-            <HomeFeature features={extraFeatures as any} />
+            <div className="yc-guide-grid">
+              {extraFeatures.map((f) => {
+                return (
+                  <a
+                    key={f.title}
+                    href={f.link}
+                    className="yc-guide-card"
+                    style={{ '--yc-guide-card-bg': `url('${f.icon}')` } as any}
+                  >
+                    <div className="yc-guide-card__bg" />
+                    <div className="yc-guide-card__content">
+                      <div className="yc-guide-card__icon">
+                        <img src={f.icon} alt="" />
+                      </div>
+                      <div className="yc-guide-card__title">{f.title}</div>
+                      <div className="yc-guide-card__desc">{f.details}</div>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </section>
       ) : null}
@@ -356,6 +377,12 @@ function Layout(props: any) {
   return (
     <BasicLayout
       {...props}
+      beforeNav={
+        <Banner
+          href="/update/2026-04-13"
+          message={page.lang === 'en' ? '🚧 Documentation is still being polished.' : '🚧 文档仍在完善中，内容持续更新。'}
+        />
+      }
       beforeNavMenu={<ThemeColorSwitcher />}
       HomeLayout={HomeLayout as any}
     />
