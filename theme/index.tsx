@@ -27,7 +27,6 @@ function ThemeColorSwitcher() {
     const savedV1 = localStorage.getItem('yc-theme');
     const saved = savedV2 || savedV1 || 'blackgold';
     const normalized = !savedV2 && savedV1 === 'blue' ? 'blackgold' : saved;
-    setCurrent(saved);
     applyTheme(normalized);
     localStorage.setItem(v2, normalized);
   }, []);
@@ -194,55 +193,57 @@ function HomeLayout(homeProps: any) {
   const { page } = usePage();
   const { frontmatter } = useFrontmatter();
   const isZh = page.lang === 'zh';
+  const isZhHome = isZh && page.routePath === '/';
+  const showHomeHero = page.routePath === '/' || page.routePath === '/en/';
   const tileFeatures = (frontmatter?.features || []).slice(0, 6);
   const extraFeatures = [
     {
       title: '指南概览',
       details: '从整体结构开始，快速建立提示词工程的知识地图。',
       icon: '/feat-1.png',
-      link: '/zh/guide/prompt-engineering/',
+      link: '/guide/prompt-engineering/',
     },
     {
       title: '文本生成控制参数',
       details: 'Temperature、Top_p 等参数如何影响随机性与稳定性。',
       icon: '/feat-2.png',
-      link: '/zh/guide/prompt-engineering/text-generation-params',
+      link: '/guide/prompt-engineering/text-generation-params',
     },
     {
       title: '提示词结构',
       details: '角色 / 指令 / 约束 / 输出格式，让提示词更清晰可控。',
       icon: '/feat-3.png',
-      link: '/zh/guide/prompt-engineering/prompt-structure',
+      link: '/guide/prompt-engineering/prompt-structure',
     },
     {
       title: '评估与迭代',
       details: '建立评估集与回归流程，避免越改越差。',
       icon: '/feat-4.png',
-      link: '/zh/guide/prompt-engineering/evaluation-and-iteration',
+      link: '/guide/prompt-engineering/evaluation-and-iteration',
     },
     {
       title: '常用提示技术',
       details: '零样本 / 少样本 / CoT 等常用技巧与适用场景。',
       icon: '/feat-1.png',
-      link: '/zh/guide/prompt-engineering/prompt-techniques',
+      link: '/guide/prompt-engineering/prompt-techniques',
     },
     {
       title: 'ReAct（工具调用）',
       details: '把思考和动作分离，适配工具与外部系统。',
       icon: '/feat-2.png',
-      link: '/zh/guide/prompt-engineering/react',
+      link: '/guide/prompt-engineering/react',
     },
     {
       title: 'DSP（方向性刺激）',
       details: '用方向性线索提升摘要/改写/抽取的贴合度与稳定性。',
       icon: '/feat-3.png',
-      link: '/zh/guide/prompt-engineering/dsp',
+      link: '/guide/prompt-engineering/dsp',
     },
     {
       title: '安全与校验',
       details: '提示词注入与防护、幻觉识别与三角验证。',
       icon: '/feat-4.png',
-      link: '/zh/guide/prompt-engineering/prompt-security',
+      link: '/guide/prompt-engineering/prompt-security',
     },
   ];
 
@@ -272,97 +273,58 @@ function HomeLayout(homeProps: any) {
     <>
       <HomeBackground />
       {beforeHero}
-      <HomeHero
-        image={<HeroMotion />}
-        afterHeroActions={
-          isZh ? (
-            <div className="yc-home-quickstart yc-reveal">
-              <PackageManagerTabs
-                command={
-                  {
-                    git: 'git clone https://github.com/ychech/YC-YPEG.git',
-                  } as any
-                }
-                additionalTabs={[
-                  {
-                    tool: 'git',
-                    icon: (
-                      <svg viewBox="0 0 128 128" width="16" height="16" aria-hidden="true">
-                        <path
-                          fill="#F1502F"
-                          d="M126.315 62.5L65.488 1.674a6.67 6.67 0 0 0-9.432 0L42.274 15.456l13.606 13.605c3.551-1.12 7.643-.223 10.373 2.508c3.153 3.153 3.823 7.82 2.012 11.644l13.064 13.064c3.823-1.81 8.491-1.14 11.644 2.012c4.116 4.116 4.116 10.79 0 14.907c-4.116 4.116-10.79 4.116-14.907 0c-3.153-3.152-3.823-7.82-2.012-11.644L63.535 49.034v33.486c1.657 1.572 2.701 3.824 2.701 6.347c0 4.773-3.87 8.643-8.643 8.643c-4.773 0-8.643-3.87-8.643-8.643c0-2.616 1.139-4.945 2.91-6.52V42.502c-1.77-1.575-2.91-3.904-2.91-6.52c0-1.89.605-3.639 1.636-5.05L36.31 16.657L1.685 61.282a6.67 6.67 0 0 0 0 9.432l60.827 60.827a6.67 6.67 0 0 0 9.432 0l54.37-54.37v-.24a6.67 6.67 0 0 0 0-9.432z"
-                        />
-                      </svg>
-                    ),
-                  },
-                ]}
-              />
-            </div>
-          ) : null
-        }
-      />
+      {page.pageType === 'home' && showHomeHero ? (
+        <HomeHero
+          image={isZhHome ? <HeroMotion /> : undefined}
+          afterHeroActions={
+            isZhHome ? (
+              <div className="yc-home-quickstart yc-reveal">
+                <PackageManagerTabs
+                  command={
+                    {
+                      git: 'git clone https://github.com/ychech/YC-YPEG.git',
+                    } as any
+                  }
+                  additionalTabs={[
+                    {
+                      tool: 'git',
+                      icon: (
+                        <svg viewBox="0 0 128 128" width="16" height="16" aria-hidden="true">
+                          <path
+                            fill="#F1502F"
+                            d="M126.315 62.5L65.488 1.674a6.67 6.67 0 0 0-9.432 0L42.274 15.456l13.606 13.605c3.551-1.12 7.643-.223 10.373 2.508c3.153 3.153 3.823 7.82 2.012 11.644l13.064 13.064c3.823-1.81 8.491-1.14 11.644 2.012c4.116 4.116 4.116 10.79 0 14.907c-4.116 4.116-10.79 4.116-14.907 0c-3.153-3.152-3.823-7.82-2.012-11.644L63.535 49.034v33.486c1.657 1.572 2.701 3.824 2.701 6.347c0 4.773-3.87 8.643-8.643 8.643c-4.773 0-8.643-3.87-8.643-8.643c0-2.616 1.139-4.945 2.91-6.52V42.502c-1.77-1.575-2.91-3.904-2.91-6.52c0-1.89.605-3.639 1.636-5.05L36.31 16.657L1.685 61.282a6.67 6.67 0 0 0 0 9.432l60.827 60.827a6.67 6.67 0 0 0 9.432 0l54.37-54.37v-.24a6.67 6.67 0 0 0 0-9.432z"
+                          />
+                        </svg>
+                      ),
+                    },
+                  ]}
+                />
+              </div>
+            ) : null
+          }
+        />
+      ) : null}
       {afterHero}
       {beforeFeatures}
-      {isZh ? (
-        <>
-          <section className="yc-home-essay yc-reveal">
-            <div className="yc-home-essay__container">
-              <h2 className="yc-home-essay__title">Prompts are required.</h2>
-              <div className="yc-home-essay__sub">提示词是必须的。</div>
-              <div className="yc-home-essay__body">
-                <p className="yc-home-essay__en">A simple example.</p>
-                <p className="yc-home-essay__zh">举一个很简答的例子。</p>
-                <p className="yc-home-essay__en">You want to generate an image—a beautiful one.</p>
-                <p className="yc-home-essay__zh">你想生成一个图，一个好看的图。</p>
-                <p className="yc-home-essay__en">But what does “beautiful” even mean?</p>
-                <p className="yc-home-essay__zh">请问：好看有定义吗？</p>
-                <p className="yc-home-essay__en">It doesn’t.</p>
-                <p className="yc-home-essay__zh">没有。</p>
-                <p className="yc-home-essay__en">So you have to define it.</p>
-                <p className="yc-home-essay__zh">所以你得定义。</p>
-                <p className="yc-home-essay__en">And you have to define it clearly—that’s why prompts matter.</p>
-                <p className="yc-home-essay__zh">你定义就得说清楚，这就是为什么必须要提示词的理由。</p>
-                <p className="yc-home-essay__en">An abstract set cannot be implemented as-is; without steps, a path twists.</p>
-                <p className="yc-home-essay__zh">一个本身就是集合，抽象的内容，是没办法具体的落实实现的，一个缺少步骤的方向、地图的行驶，道路必定是曲折的。</p>
-                <p className="yc-home-essay__en">Models will keep getting stronger—inevitably.</p>
-                <p className="yc-home-essay__zh">大模型的能力会越来越强，这是必然。</p>
-                <p className="yc-home-essay__en">MCP, RNG, OpenClaw, Harness, skills… are transitional crutches.</p>
-                <p className="yc-home-essay__zh">我们现在所有的补充的能力，mcp，RNG，openclaw，harness，skill，为什么要有这些东西，实际上是一个过渡，一个 transform 预测器能力不足折中。</p>
-                <p className="yc-home-essay__en">Once you cross that stage, the tool becomes powerful.</p>
-                <p className="yc-home-essay__zh">但是如果渡过了这个阶段，那么反过来，你有一个很强的工具，一个员工，很强大的武器。</p>
-                <p className="yc-home-essay__en">Then the value is in you: can you command, understand the business, express precisely with prompts?</p>
-                <p className="yc-home-essay__zh">那么决定权、价值就在你手上了，你行不行，你会不会命令，你懂不懂业务，你会不会精确的用 prompt 去表达，那就很重要了。</p>
-              </div>
-            </div>
-          </section>
-          <section className="yc-home-tiles yc-reveal">
-            <div className="yc-home-tiles__container">
-              <div className="yc-home-tiles__grid">
-              {tileFeatures.map((f: any, idx: number) => {
-                const isCore = idx < 3;
+      {isZhHome ? (
+        <section className="yc-home-tiles yc-reveal">
+          <div className="yc-home-tiles__container">
+            <div className="yc-home-tiles__grid">
+              {tileFeatures.map((f: any) => {
                 return (
-                  <a
-                    key={f.title}
-                    href={f.link}
-                    className={`yc-tile yc-reveal ${isCore ? 'yc-tile--core' : 'yc-tile--aux'}`}
-                  >
-                    <div className="yc-tile__top">
-                      {f.icon ? <img className="yc-tile__icon" src={f.icon} alt="" /> : null}
-                      <div className="yc-tile__title">{f.title}</div>
-                    </div>
+                  <a key={f.title} href={f.link} className="yc-tile yc-reveal">
+                    {f.icon ? <img className="yc-tile__icon" src={f.icon} alt="" /> : null}
+                    <div className="yc-tile__title">{f.title}</div>
                     <div className="yc-tile__desc">{f.details}</div>
                   </a>
                 );
               })}
-              </div>
             </div>
-          </section>
-        </>
-      ) : (
-        <HomeFeature />
-      )}
+          </div>
+        </section>
+      ) : null}
       {afterFeatures}
-      {isZh ? (
+      {isZhHome ? (
         <section className="yc-home-section yc-reveal">
           <div className="yc-home-section__container">
             <h2 className="yc-home-section__title">指南导航</h2>
@@ -377,7 +339,12 @@ function HomeLayout(homeProps: any) {
 }
 
 function Layout(props: any) {
+  const { page } = usePage();
   useHead({
+    htmlAttrs: {
+      'data-route': page.routePath,
+      'data-page-type': page.pageType,
+    },
     link: [
       { rel: 'icon', href: '/cs2.png?v=1' },
       { rel: 'shortcut icon', href: '/cs2.png?v=1' },

@@ -1,0 +1,104 @@
+[
+  {
+    "type": "section-header",
+    "label": "简介"
+  },
+  {
+    "type": "file",
+    "name": "introduction",
+    "label": "引言"
+  },
+    {
+    "type": "file",
+    "name": "preface",
+    "label": "前言"
+  },
+  {
+    "type": "file",
+    "name": "index",
+    "label": "指南概览"
+  },
+
+  {
+    "type": "section-header",
+    "label": "初级阶段"
+  },
+  {
+    "type": "dir",
+    "name": "text-generation-params",
+    "label": "文本生成控制参数",
+    "collapsible": true,
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "prompt-structure",
+    "label": "提示词结构",
+    "collapsible": true,
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "evaluation-and-iteration",
+    "label": "评估与迭代",
+    "collapsible": true,
+    "collapsed": true
+  },
+  {
+    "type": "section-header",
+    "label": "中级阶段"
+  },
+  {
+    "type": "dir",
+    "name": "prompt-techniques",
+    "label": "常用提示技术",
+    "collapsible": true,
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "react",
+    "label": "ReAct（工具调用）",
+    "collapsible": true,
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "dsp",
+    "label": "DSP（方向性刺激）",
+    "collapsible": true,
+    "collapsed": true
+  },
+  {
+    "type": "section-header",
+    "label": "高级阶段"
+  },
+  {
+    "type": "dir",
+    "name": "hallucination",
+    "label": "模型幻觉与校验",
+    "collapsible": true,
+    "collapsed": true
+  },
+  {
+    "type": "dir",
+    "name": "prompt-security",
+    "label": "提示词安全",
+    "collapsible": true,
+    "collapsed": true
+  },
+  {
+    "type": "section-header",
+    "label": "附录"
+  },
+  {
+    "type": "file",
+    "name": "home-motion",
+    "label": "首页动态效果实现方案"
+  },
+  {
+    "type": "file",
+    "name": "references",
+    "label": "参考资料"
+  }
+]

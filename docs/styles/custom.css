@@ -306,11 +306,11 @@ html {
 }
 
 /* 强制显示左侧目录（不通过左上“菜单”按钮展开） */
-.rp-doc-layout__menu {
+html[data-page-type="doc"] .rp-doc-layout__menu {
   display: none !important;
 }
 
-.rp-doc-layout__sidebar {
+html[data-page-type="doc"] .rp-doc-layout__sidebar {
   display: block !important;
   transform: none !important;
   opacity: 1 !important;
@@ -322,12 +322,22 @@ html {
   max-width: 280px !important;
 }
 
-.rp-doc-layout__container {
+html[data-page-type="doc"] .rp-doc-layout__container {
   align-items: flex-start;
 }
 
-.rp-doc-layout__doc {
+html[data-page-type="doc"] .rp-doc-layout__doc {
   min-width: 0;
+}
+
+/* 避免侧边栏出现“父级 + 子级”同时高亮 */
+html[data-route^="/guide/prompt-engineering/"] .rp-doc-layout__sidebar .rp-sidebar-item.rp-sidebar-group.rp-sidebar-item--active {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html[data-route^="/guide/prompt-engineering/"] .rp-doc-layout__sidebar .rp-sidebar-item.rp-sidebar-group.rp-sidebar-item--active .rp-sidebar-item__left span {
+  color: var(--rp-c-text-2) !important;
 }
 
 .yc-home-quickstart {
@@ -340,18 +350,60 @@ html {
   margin-top: 14px;
 }
 
-.yc-home-essay {
-  padding: 0 24px;
-  margin-top: 56px;
+.rp-doc-content .yc-doc-hero {
+  display: grid;
+  grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+  gap: 26px;
+  align-items: start;
+  margin: 10px 0 28px;
 }
 
-.yc-home-essay__container {
-  max-width: 760px;
-  margin: 0 auto;
-}
-
-.yc-home-essay__title {
+.rp-doc-content .yc-doc-hero__intro {
   margin: 0;
+  padding: 18px 18px 14px;
+  border: 1px solid var(--rp-c-divider-light);
+  border-radius: 16px;
+  background: var(--rp-home-feature-bg);
+}
+
+.rp-doc-content .yc-doc-hero__intro-title {
+  font-family: ui-serif, Georgia, "Times New Roman", serif;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--rp-c-text-1);
+}
+
+.rp-doc-content .yc-doc-hero__intro-sub {
+  margin-top: 8px;
+  color: var(--rp-c-text-2);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.rp-doc-content .yc-doc-hero__intro-body {
+  margin-top: 14px;
+}
+
+.rp-doc-content .yc-doc-hero__en {
+  margin: 0 0 6px;
+  font-family: ui-serif, Georgia, "Times New Roman", serif;
+  font-style: italic;
+  color: var(--rp-c-text-1);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.rp-doc-content .yc-doc-hero__zh {
+  margin: 0 0 14px;
+  color: var(--rp-c-text-2);
+  font-size: 14px;
+  line-height: 1.95;
+}
+
+.rp-doc-content .yc-doc-hero__main h1 {
+  margin-top: 0;
   font-size: 44px;
   line-height: 1.06;
   letter-spacing: -0.02em;
@@ -360,45 +412,163 @@ html {
   color: var(--rp-c-text-1);
 }
 
-.yc-home-essay__sub {
-  margin-top: 10px;
+.rp-doc-content .yc-doc-hero__main p {
+  margin: 14px 0 0;
   color: var(--rp-c-text-2);
   font-size: 16px;
-  line-height: 1.7;
+  line-height: 1.85;
 }
 
-.yc-home-essay__body {
-  margin-top: 26px;
+@media (width <= 960px) {
+  .rp-doc-content .yc-doc-hero {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .rp-doc-content .yc-doc-hero__main h1 {
+    font-size: 34px;
+  }
+  .rp-doc-content .yc-doc-hero__main p {
+    font-size: 15px;
+  }
 }
 
-.yc-home-essay__en {
-  margin: 0 0 8px;
+.yc-intro-clean {
+  margin: 10px 0 26px;
+}
+
+.yc-intro-clean__title {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.yc-intro-clean__en {
+  font-family: ui-serif, Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  font-size: 86px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--rp-c-text-1);
+}
+
+@media (width <= 960px) {
+  .yc-intro-clean__en {
+    font-size: 56px;
+  }
+}
+
+.yc-intro-clean__pairs {
+  margin-top: 22px;
+}
+
+.yc-intro-clean__enline {
+  margin: 0 0 6px;
   font-family: ui-serif, Georgia, "Times New Roman", serif;
   font-style: italic;
-  color: var(--rp-c-text-1);
   font-size: 18px;
-  line-height: 1.9;
-}
-
-.yc-home-essay__zh {
-  margin: 0 0 18px;
-  color: var(--rp-c-text-2);
-  font-size: 16px;
   line-height: 1.95;
+  color: var(--rp-c-text-1);
 }
 
-@media (width <= 640px) {
-  .yc-home-essay {
-    padding: 0 16px;
+.yc-intro-clean__zhline {
+  margin: 0 0 16px;
+  font-size: 16px;
+  line-height: 2.05;
+  color: var(--rp-c-text-2);
+}
+
+html[data-route="/guide/prompt-engineering/introduction"] .rp-doc-layout__toc,
+html[data-route="/guide/prompt-engineering/introduction"] .rp-doc-layout__toc-container,
+html[data-route="/guide/prompt-engineering/introduction"] .rp-llms-container,
+html[data-route="/guide/prompt-engineering/introduction"] .rp-prev-next-page,
+html[data-route="/guide/prompt-engineering/introduction"] .rp-prev-next-page__item,
+html[data-route="/guide/prompt-engineering/introduction"] .rp-doc-footer__divider,
+html[data-route="/guide/prompt-engineering/introduction"] h1.rp-toc-include {
+  display: none !important;
+}
+
+html[data-route="/guide/prompt-engineering/introduction"] .rp-doc-layout__doc-container {
+  background: transparent !important;
+}
+
+html[data-route="/guide/prompt-engineering/introduction"] .rp-doc.rspress-doc {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding-top: 46px;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+html[data-route="/guide/prompt-engineering/introduction"] .rp-doc.rspress-doc {
+  text-align: center;
+}
+
+html[data-route="/guide/prompt-engineering/introduction"] .yc-intro-clean {
+  margin: 18px 0 30px;
+}
+
+html[data-route="/guide/prompt-engineering/introduction"] .yc-intro-clean__title {
+  justify-content: center;
+}
+
+html[data-route="/guide/prompt-engineering/introduction"] .yc-intro-clean__en {
+  display: inline-block;
+  font-weight: 560;
+  font-size: 86px;
+  letter-spacing: -0.055em;
+  color: var(--rp-c-text-1);
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  filter: saturate(1.05);
+  transform: skewX(-7deg);
+  transform-origin: center;
+  text-shadow:
+    0 -1px 0 rgba(255, 255, 255, 0.14),
+    0 1px 0 rgba(0, 0, 0, 0.26),
+    0 3px 0 rgba(0, 0, 0, 0.16),
+    0 12px 24px rgba(0, 0, 0, 0.18);
+}
+
+html.rp-dark[data-route="/guide/prompt-engineering/introduction"] .yc-intro-clean__en {
+  text-shadow:
+    0 -1px 0 rgba(255, 255, 255, 0.10),
+    0 1px 0 rgba(0, 0, 0, 0.64),
+    0 2px 0 rgba(0, 0, 0, 0.44),
+    0 10px 24px rgba(0, 0, 0, 0.62),
+    0 0 14px rgba(255, 255, 255, 0.05);
+}
+
+html[data-route="/guide/prompt-engineering/introduction"] .yc-intro-clean__pairs {
+  margin-top: 28px;
+}
+
+html[data-route="/guide/prompt-engineering/introduction"] .yc-intro-clean__enline {
+  font-size: 22px;
+  color: var(--rp-c-text-1);
+}
+
+html[data-route="/guide/prompt-engineering/introduction"] .yc-intro-clean__zhline {
+  font-size: 18px;
+  color: var(--rp-c-text-2);
+}
+
+@media (width <= 960px) {
+  html[data-route="/guide/prompt-engineering/introduction"] .rp-doc.rspress-doc {
+    transform: none;
   }
-  .yc-home-essay__title {
-    font-size: 32px;
+}
+
+@media (width <= 960px) {
+  html[data-route="/guide/prompt-engineering/introduction"] .rp-doc.rspress-doc {
+    transform: none;
   }
-  .yc-home-essay__en {
-    font-size: 16px;
-  }
-  .yc-home-essay__zh {
-    font-size: 15px;
+  html[data-route="/guide/prompt-engineering/introduction"] .rp-doc-layout__doc {
+    width: 100%;
+    margin-left: 0;
   }
 }
 
@@ -423,8 +593,8 @@ html {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 18px 18px 16px;
+  gap: 8px;
+  padding: 22px 22px 18px;
   border-radius: 16px;
   border: 1px solid var(--rp-c-divider-light);
   text-decoration: none;
@@ -455,59 +625,29 @@ html {
   border-color: rgba(200, 150, 60, 0.30);
 }
 
-.yc-tile__top {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
 .yc-tile__icon {
-  width: 22px;
-  height: 22px;
+  width: 60px;
+  height: 60px;
   object-fit: contain;
   flex: 0 0 auto;
-  filter: drop-shadow(0 10px 14px rgba(15, 23, 42, 0.18));
+  filter: drop-shadow(0 14px 22px rgba(15, 23, 42, 0.22));
 }
 
 .yc-tile__title {
   font-weight: 700;
   letter-spacing: 0.01em;
+  font-size: 18px;
+  margin-top: 4px;
 }
 
 .yc-tile__desc {
   color: var(--rp-c-text-2);
   line-height: 1.55;
-}
-
-.yc-tile--core {
-  min-height: 148px;
-  padding: 22px 22px 18px;
-}
-
-.yc-tile--core .yc-tile__title {
-  font-size: 18px;
-}
-
-.yc-tile--core .yc-tile__desc {
   font-size: 13.5px;
 }
 
-.yc-tile--aux {
-  min-height: 112px;
-  padding: 16px 16px 14px;
-  box-shadow: 0 14px 40px -34px rgba(15, 23, 42, 0.30);
-}
-
-.yc-tile--aux::before {
-  opacity: 0.38;
-}
-
-.yc-tile--aux .yc-tile__title {
-  font-size: 15px;
-}
-
-.yc-tile--aux .yc-tile__desc {
-  font-size: 12.8px;
+.yc-tile {
+  min-height: 188px;
 }
 
 
@@ -528,6 +668,19 @@ html {
   .yc-tile--core,
   .yc-tile--aux {
     min-height: unset;
+  }
+}
+
+@media (width <= 960px) {
+  html[data-route="/guide/prompt-engineering/introduction"] .yc-intro-clean__en {
+    font-size: 56px;
+    letter-spacing: -0.05em;
+  }
+  html[data-route="/guide/prompt-engineering/introduction"] .yc-intro-clean__enline {
+    font-size: 20px;
+  }
+  html[data-route="/guide/prompt-engineering/introduction"] .yc-intro-clean__zhline {
+    font-size: 17px;
   }
 }
 

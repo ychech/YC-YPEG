@@ -1,0 +1,14 @@
+[
+  {
+    "text": "提示词指南",
+    "link": "/guide/prompt-engineering/",
+    "activeMatch": "^/guide/prompt-engineering/",
+    "position": "left"
+  },
+  {
+    "text": "更新日志",
+    "link": "/update/2026-04-13",
+    "activeMatch": "^/update/",
+    "position": "left"
+  }
+]

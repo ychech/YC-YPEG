@@ -7,16 +7,16 @@
   {
     "text": "Guide",
     "link": "/en/guide/prompt-engineering/",
-    "activeMatch": "/en/guide/"
-  },
-  {
-    "text": "LangChain",
-    "link": "/guide/langchain/",
-    "activeMatch": "/guide/langchain/"
+    "activeMatch": "^/en/guide/"
   },
   {
     "text": "API",
     "link": "/en/api/",
-    "activeMatch": "/en/api/"
+    "activeMatch": "^/en/api/"
+  },
+  {
+    "text": "Changelog",
+    "link": "/en/update/2026-04-13",
+    "activeMatch": "^/en/update/"
   }
 ]
