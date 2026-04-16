@@ -1,38 +1,51 @@
 ---
 title: 行业认知
-pageType: doc-wide
 outline: false
 sidebar: false
+pageType: custom
 ---
 
-<div
-  className="yc-landing-hero"
-  style={{ '--yc-landing-hero-bg': "url('/工作助手狐.png')" }}
->
-  <div className="yc-landing-hero__bg" />
-  <div className="yc-landing-hero__content">
-    <div className="yc-landing-hero__icon">
-      <img src="/工作助手狐.png" alt="" />
-    </div>
-    <h1 className="yc-landing-hero__title">行业认知</h1>
-    <p className="yc-landing-hero__lead">
-      提示词工程师是 AI 商业化落地的关键应用型岗位：把模糊的人类需求翻译成模型可稳定执行的结构化指令，并把“能用”做成“可复用、可评估、可迭代”。
-    </p>
+import { TiltHero } from '../../../../theme/components/TiltHero';
+
+<TiltHero
+  title="行业认知"
+  lead="提示词工程师是 AI 落地的关键岗位：把模糊需求翻译成模型可稳定执行的结构化指令，并把“能用”做成“可复用、可评估、可迭代”。"
+  imageSrc="/工作助手狐.png"
+  variant="plain"
+/>
+
+<div className="yc-tilt-body">
+  <h2 className="yc-tilt-body__h2">这份指南解决什么</h2>
+  <ul className="yc-tilt-body__list">
+    <li>让输出更稳定：用结构、约束、示例，把模型拉回可控区间</li>
+    <li>让协作更顺畅：统一模板与格式，减少歧义与返工</li>
+    <li>让迭代更工程化：用评估集与回归流程，避免“越改越差”</li>
+  </ul>
+
+  <h2 className="yc-tilt-body__h2" style={{ marginTop: 22 }}>
+    推荐阅读顺序
+  </h2>
+  <ol className="yc-tilt-body__list">
+    <li>
+      <a className="rp-link" href="/guide/prompt-engineering/text-generation-params">
+        文本生成控制参数
+      </a>
+    </li>
+    <li>
+      <a className="rp-link" href="/guide/prompt-engineering/prompt-structure">
+        提示词结构
+      </a>
+    </li>
+    <li>
+      <a className="rp-link" href="/guide/prompt-engineering/evaluation-and-iteration">
+        评估与迭代
+      </a>
+    </li>
+  </ol>
+
+  <div style={{ margin: '26px 0 10px' }}>
+    <a href="/guide/prompt-engineering/" className="rp-link">
+      ← 返回指南概览
+    </a>
   </div>
-</div>
-
-## 这份指南解决什么
-
-- 让输出更稳定：用结构、约束、示例，把模型拉回可控区间
-- 让协作更顺畅：统一模板与格式，减少歧义与返工
-- 让迭代更工程化：用评估集与回归流程，避免“越改越差”
-
-## 推荐阅读顺序
-
-1. [文本生成控制参数](/guide/prompt-engineering/text-generation-params)
-2. [提示词结构](/guide/prompt-engineering/prompt-structure)
-3. [评估与迭代](/guide/prompt-engineering/evaluation-and-iteration)
-
-<div style={{ margin: '26px 0 10px' }}>
-  <a href="/guide/prompt-engineering/" className="rp-link">← 返回指南概览</a>
 </div>

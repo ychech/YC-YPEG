@@ -98,6 +98,11 @@
   },
   {
     "type": "file",
+    "name": "project-structure",
+    "label": "项目结构说明"
+  },
+  {
+    "type": "file",
     "name": "references",
     "label": "参考资料"
   }

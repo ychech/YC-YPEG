@@ -781,6 +781,21 @@ html[data-route="/guide/prompt-engineering/introduction"] .yc-intro-clean__zhlin
   font-size: 22px;
 }
 
+.yc-tilt-body__list {
+  margin: 14px 0 0;
+  padding-left: 18px;
+  color: var(--rp-c-text-2);
+  line-height: 1.75;
+}
+
+.yc-tilt-body__list li + li {
+  margin-top: 8px;
+}
+
+.footnotes > h2 {
+  display: none !important;
+}
+
 .yc-tilt-body__grid {
   margin-top: 16px;
   display: grid;

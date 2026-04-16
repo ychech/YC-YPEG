@@ -1,0 +1,75 @@
+---
+title: 项目结构说明
+---
+
+这份文档解释两件事：
+1) 为什么有些内容会放在“目录（文件夹）”下面；  
+2) 这个站点（文档 + 主题代码）的整体结构是怎么组织的。
+
+## 1. 为什么有的内容在目录下
+
+在 Rspress 里，**路由基本由文件路径决定**：
+
+- `docs/zh/guide/prompt-engineering/react.mdx` → 路由 `/guide/prompt-engineering/react`
+- `docs/zh/guide/prompt-engineering/react/notes.md` → 路由 `/guide/prompt-engineering/react/notes`
+
+你现在看到的“有的内容在目录下”，主要是我们把每个主题拆成了两层：
+
+- **落地页（Landing Page）**：放在同级的 `xxx.mdx`，用于首页卡片点击进入后的“图片 + 标题 + 简介 + 导航”的统一版式。
+- **详细页（Details）**：放到 `xxx/notes.md` 里，作为该主题的扩展内容（侧边栏目录里也更容易折叠收纳）。
+
+这样做的好处是：
+
+- 首页卡片进入的页面风格一致（更像“专题页”）
+- 详细内容不会把落地页挤得太长
+- 侧边栏用目录折叠时更清晰（目录代表一个主题，目录里放补充内容）
+
+## 2. 文档站整体结构（你最常会用到的）
+
+### 2.1 配置入口
+
+- `rspress.config.ts`  
+  站点根配置：文档根目录、语言、多语言、全局样式、Logo/Favicon、页脚文案等。
+
+### 2.2 文档内容（docs）
+
+- `docs/` 是站点内容根目录（由 `root: path.join(__dirname, 'docs')` 指定）
+- `docs/zh/`、`docs/en/` 分别是中文/英文内容
+- `docs/**/_nav.json` 控制顶部导航（比如“提示词指南”“更新日志”）
+  - 中文：`docs/zh/_nav.json`
+  - 英文：`docs/en/_nav.json`
+
+### 2.3 提示词指南模块（guide/prompt-engineering）
+
+这是目前站点的核心内容区：
+
+- 目录：`docs/zh/guide/prompt-engineering/`
+- 侧边栏结构：由 `docs/zh/guide/prompt-engineering/_meta.json` 控制
+
+`_meta.json` 里常用两类条目：
+
+- `type: "file"`：表示一个单独页面（对应同名的 `.md/.mdx` 文件）
+- `type: "dir"`：表示一个“主题目录”（可折叠），目录下通常会有 `notes.md` 等子页面
+
+### 2.4 静态资源（docs/public）
+
+- `docs/public/` 里的文件会被当作站点静态资源发布，可用 `/xxx.png` 直接引用。
+- 例如在 MDX 里写：`imageSrc="/工作助手狐.png"`，就会从 `docs/public/工作助手狐.png` 加载。
+- `docs/public/other/` 是我们整理出来的“暂未引用资源区”，后续要用可以再移回来或直接引用它的路径。
+
+### 2.5 全局样式（docs/styles）
+
+- `docs/styles/custom.css`  
+  站点全局样式入口（由 `globalStyles` 引入）。这里放首页卡片、专题页（TiltHero）等样式。
+
+### 2.6 自定义主题（theme）
+
+- `theme/index.tsx`  
+  主题入口：包含自定义 Layout/HomeLayout、导航 Banner、主题切换器等。
+- `theme/components/TiltHero.tsx`  
+  专题落地页的“图片 + 标题 + 简介”组件。
+
+### 2.7 构建产物（doc_build）
+
+- `doc_build/` 是 `rspress build` 的输出目录，用于部署或本地 preview。
+- 这个目录是生成物，不是手写内容；需要改内容请改 `docs/` 与 `theme/`。
