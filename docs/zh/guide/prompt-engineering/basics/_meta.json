@@ -1,0 +1,33 @@
+[
+  {
+    "type": "dir",
+    "name": "industry-cognition",
+    "label": "行业认知"
+  },
+  {
+    "type": "dir",
+    "name": "mindset",
+    "label": "思维方式"
+  },
+  {
+    "type": "dir",
+    "name": "format-spec",
+    "label": "格式规范"
+  },
+  {
+    "type": "dir",
+    "name": "industry-expansion",
+    "label": "行业拓展"
+  },
+  {
+    "type": "dir",
+    "name": "practical-exercise",
+    "label": "实战演练"
+  },
+  
+  {
+    "type": "dir",
+    "name": "future-innovation",
+    "label": "未来创新"
+  }
+]

@@ -1,8 +1,11 @@
 import {
   Layout as BasicLayout,
   Banner,
+  HomeBackground,
+  HomeFooter,
+  HomeHero,
+  PackageManagerTabs,
 } from '@rspress/core/theme-original';
-import { HomeBackground, HomeFooter, HomeHero, PackageManagerTabs } from '@rspress/core/theme';
 import { useFrontmatter, usePage } from '@rspress/core/runtime';
 import { useEffect, useState } from 'react';
 import { HeroMotion } from './components/HeroMotion';

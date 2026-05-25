@@ -1,19 +1,15 @@
 [
   {
-    "type": "section-header",
-    "label": "简介"
+    "type": "file",
+    "name": "preface",
+    "label": "前言"
   },
   {
     "type": "file",
     "name": "introduction",
     "label": "引言"
   },
-    {
-    "type": "file",
-    "name": "preface",
-    "label": "前言"
-  },
-  {
+   {
     "type": "file",
     "name": "index",
     "label": "指南概览"
@@ -44,6 +40,7 @@
     "collapsible": true,
     "collapsed": true
   },
+
   {
     "type": "section-header",
     "label": "思维能力设计"
@@ -57,18 +54,19 @@
   },
   {
     "type": "dir",
-    "name": "react",
-    "label": "ReAct（工具调用）",
+    "name": "advanced-techniques",
+    "label": "进阶提示技术",
     "collapsible": true,
     "collapsed": true
   },
   {
     "type": "dir",
-    "name": "dsp",
-    "label": "DSP（方向性刺激）",
+    "name": "extended-techniques",
+    "label": "扩展提示技术",
     "collapsible": true,
     "collapsed": true
   },
+
   {
     "type": "section-header",
     "label": "安全突破防守"
@@ -76,7 +74,7 @@
   {
     "type": "dir",
     "name": "hallucination",
-    "label": "模型幻觉与校验",
+    "label": "模型幻觉",
     "collapsible": true,
     "collapsed": true
   },
@@ -89,17 +87,14 @@
   },
   {
     "type": "section-header",
-    "label": "附录"
+    "label": "附加信息"
   },
   {
-    "type": "file",
-    "name": "home-motion",
-    "label": "首页动态效果实现方案"
-  },
-  {
-    "type": "file",
-    "name": "project-structure",
-    "label": "项目结构说明"
+    "type": "dir",
+    "name": "basics",
+    "label": "六大整合",
+    "collapsible": true,
+    "collapsed": false
   },
   {
     "type": "file",

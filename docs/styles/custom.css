@@ -269,6 +269,10 @@ html.dark .rp-nav__title__link > span {
   transition: all 0.3s ease;
 }
 
+.rp-doc-content h1 .header-anchor {
+  display: none !important;
+}
+
 /* 表格行动画 */
 .rp-doc-content tr {
   transition: background-color 0.2s ease;
@@ -303,6 +307,22 @@ html.dark .rp-nav__title__link > span {
 /* 平滑滚动 */
 html {
   scroll-behavior: smooth;
+}
+
+html[data-page-type="doc"] .rp-doc-layout__doc {
+  position: relative;
+}
+
+html[data-page-type="doc"] .rp-llms-container {
+  position: absolute;
+  top: 6px;
+  right: 0;
+  z-index: 5;
+  margin: 0 !important;
+}
+
+html[data-page-type="doc"] .rp-doc-content h1:first-of-type {
+  padding-right: 168px;
 }
 
 /* 强制显示左侧目录（不通过左上“菜单”按钮展开） */
@@ -554,6 +574,76 @@ html[data-route="/guide/prompt-engineering/introduction"] .yc-intro-clean__enlin
 html[data-route="/guide/prompt-engineering/introduction"] .yc-intro-clean__zhline {
   font-size: 18px;
   color: var(--rp-c-text-2);
+}
+
+html[data-route^="/guide/prompt-engineering/evaluation-and-iteration"] .rp-doc-content,
+body[data-route^="/guide/prompt-engineering/evaluation-and-iteration"] .rp-doc-content {
+  color: #fff !important;
+}
+
+html[data-route^="/guide/prompt-engineering/evaluation-and-iteration"] .rp-doc-content :where(h1, h2, h3, h4, h5, h6),
+body[data-route^="/guide/prompt-engineering/evaluation-and-iteration"] .rp-doc-content :where(h1, h2, h3, h4, h5, h6) {
+  color: #fff !important;
+}
+
+html[data-route^="/guide/prompt-engineering/evaluation-and-iteration"] .rp-doc-content font,
+body[data-route^="/guide/prompt-engineering/evaluation-and-iteration"] .rp-doc-content font,
+html[data-route^="/guide/prompt-engineering/evaluation-and-iteration"] .rp-doc-content font[style],
+body[data-route^="/guide/prompt-engineering/evaluation-and-iteration"] .rp-doc-content font[style] {
+  color: #fff !important;
+}
+
+html[data-route^="/guide/prompt-engineering/evaluation-and-iteration"] .rp-doc-content [style*="color"],
+body[data-route^="/guide/prompt-engineering/evaluation-and-iteration"] .rp-doc-content [style*="color"] {
+  color: #fff !important;
+}
+
+html.rp-dark .rp-doc-content [style*="rgb(15, 20, 26)"],
+html.rp-dark .rp-doc-content [style*="rgb(15,20,26)"],
+html.dark .rp-doc-content [style*="rgb(15, 20, 26)"],
+html.dark .rp-doc-content [style*="rgb(15,20,26)"] {
+  color: var(--rp-c-text-1) !important;
+}
+
+html.rp-dark .rp-doc-content [style*="color:rgb(0, 0, 0)"],
+html.rp-dark .rp-doc-content [style*="color:rgb(0,0,0)"],
+html.rp-dark .rp-doc-content [style*="color:#000000"],
+html.rp-dark .rp-doc-content [style*="color:#000"],
+html.rp-dark .rp-doc-content [style*="color:##000000"],
+html.rp-dark .rp-doc-content [style*="color:rgba(0, 0, 0"],
+html.rp-dark .rp-doc-content [style*="color:rgba(0,0,0"],
+html.dark .rp-doc-content [style*="color:rgb(0, 0, 0)"],
+html.dark .rp-doc-content [style*="color:rgb(0,0,0)"],
+html.dark .rp-doc-content [style*="color:#000000"],
+html.dark .rp-doc-content [style*="color:#000"],
+html.dark .rp-doc-content [style*="color:##000000"],
+html.dark .rp-doc-content [style*="color:rgba(0, 0, 0"],
+html.dark .rp-doc-content [style*="color:rgba(0,0,0"] {
+  color: var(--rp-c-text-1) !important;
+}
+
+html.rp-dark[data-route^="/guide/prompt-engineering/prompt-structure"] .rp-doc-content font,
+html.rp-dark body[data-route^="/guide/prompt-engineering/prompt-structure"] .rp-doc-content font,
+html.rp-dark[data-route^="/guide/prompt-engineering/prompt-structure"] .rp-doc-content font[style],
+html.rp-dark body[data-route^="/guide/prompt-engineering/prompt-structure"] .rp-doc-content font[style],
+html.rp-dark[data-route^="/guide/prompt-engineering/prompt-structure"] .rp-doc-content [style*="color"],
+html.rp-dark body[data-route^="/guide/prompt-engineering/prompt-structure"] .rp-doc-content [style*="color"],
+html.dark[data-route^="/guide/prompt-engineering/prompt-structure"] .rp-doc-content font,
+html.dark body[data-route^="/guide/prompt-engineering/prompt-structure"] .rp-doc-content font,
+html.dark[data-route^="/guide/prompt-engineering/prompt-structure"] .rp-doc-content font[style],
+html.dark body[data-route^="/guide/prompt-engineering/prompt-structure"] .rp-doc-content font[style],
+html.dark[data-route^="/guide/prompt-engineering/prompt-structure"] .rp-doc-content [style*="color"],
+html.dark body[data-route^="/guide/prompt-engineering/prompt-structure"] .rp-doc-content [style*="color"] {
+  color: var(--rp-c-text-1) !important;
+}
+
+html.dark [data-route^="/guide/prompt-engineering/prompt-structure"] .rp-doc-content font,
+html.dark [data-route^="/guide/prompt-engineering/prompt-structure"] .rp-doc-content font[style],
+html.dark [data-route^="/guide/prompt-engineering/prompt-structure"] .rp-doc-content [style*="color"],
+html.rp-dark [data-route^="/guide/prompt-engineering/prompt-structure"] .rp-doc-content font,
+html.rp-dark [data-route^="/guide/prompt-engineering/prompt-structure"] .rp-doc-content font[style],
+html.rp-dark [data-route^="/guide/prompt-engineering/prompt-structure"] .rp-doc-content [style*="color"] {
+  color: var(--rp-c-text-1) !important;
 }
 
 @media (width <= 960px) {

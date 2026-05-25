@@ -4,8 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "sanitize": "node ./scripts/sanitize-inline-colors.mjs",
     "build": "rspress build",
     "dev": "rspress dev",
+    "predev": "npm run sanitize",
+    "prebuild": "npm run sanitize",
     "preview": "rspress preview"
   },
   "dependencies": {
