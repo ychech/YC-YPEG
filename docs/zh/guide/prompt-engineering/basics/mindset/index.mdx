@@ -8,7 +8,7 @@ import { TiltHero } from '@theme/components/TiltHero';
 <TiltHero
   title="思维方式"
   lead="你不是在“写一句话让模型猜”，而是在做设计：明确目标、拆解步骤、设定边界、验证结果。思维方式决定了你能把输出从“看运气”变成“可控可复用”。"
-  imageSrc="/YC-YPEG/assets/icons/fox-academic.png"
+  imageSrc="/assets/icons/fox-academic.png"
 />
 
 <div className="yc-tilt-body">
@@ -61,7 +61,10 @@ import { TiltHero } from '@theme/components/TiltHero';
     </li>
   </ul>
 
-  <div style={{ margin: '28px 0 10px' }}>
-    <a href="/YC-YPEG/guide/prompt-engineering/" className="rp-link">← 返回指南概览</a>
+  <div className="yc-backlink-wrap">
+    <a href="/YC-YPEG/guide/prompt-engineering/" className="rp-link yc-backlink">
+      <span aria-hidden="true">←</span>
+      <span>返回指南概览</span>
+    </a>
   </div>
 </div>

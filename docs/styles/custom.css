@@ -754,6 +754,7 @@ html.rp-dark [data-route^="/guide/prompt-engineering/prompt-structure"] .rp-doc-
 
 .yc-tilt-hero__layout {
   position: relative;
+  z-index: 2;
   max-width: 1180px;
   margin: 0 auto;
   padding: 56px 34px 44px;
@@ -831,21 +832,14 @@ html.rp-dark [data-route^="/guide/prompt-engineering/prompt-structure"] .rp-doc-
 }
 
 .yc-tilt-hero--plain .yc-tilt-hero__layout {
-  grid-template-columns: minmax(0, 1fr) 420px;
-  padding: 20px 0 10px;
+  grid-template-columns: 1fr;
+  padding: 28px 0 16px;
+  padding-right: clamp(260px, 30vw, 420px);
   align-items: start;
 }
 
 .yc-tilt-hero--plain .yc-tilt-hero__stage {
-  height: auto;
-  min-height: 260px;
-  border: 0;
-  background: transparent;
-  box-shadow: none;
-  overflow: visible;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  display: none;
 }
 
 .yc-tilt-hero--plain .yc-tilt-hero__stage::before {
@@ -853,18 +847,54 @@ html.rp-dark [data-route^="/guide/prompt-engineering/prompt-structure"] .rp-doc-
 }
 
 .yc-tilt-hero--plain .yc-tilt-hero__img {
-  position: relative;
-  left: auto;
-  bottom: auto;
-  width: 420px;
-  max-width: 100%;
-  filter: drop-shadow(0 34px 54px rgba(0, 0, 0, 0.46));
+  display: none;
+}
+
+.yc-tilt-hero__plain-img {
+  position: absolute;
+  z-index: 1;
+  right: 24px;
+  top: 50%;
+  width: clamp(220px, 22vw, 360px);
+  height: auto;
+  transform: translate3d(0, -30%, 0);
+  filter: drop-shadow(0 32px 58px rgba(0, 0, 0, 0.58));
+  will-change: transform;
+  transition: transform 120ms ease-out, opacity 160ms ease;
+  pointer-events: none;
+  user-select: none;
 }
 
 .yc-tilt-body {
   max-width: 1180px;
   margin: 0 auto;
   padding: 34px 24px 0;
+}
+
+.yc-backlink-wrap {
+  margin: 28px 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.yc-backlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--rp-c-divider-light);
+  background: rgba(0, 0, 0, 0.08);
+  color: var(--rp-c-text-2);
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.yc-backlink:hover {
+  background: rgba(200, 150, 60, 0.12);
+  border-color: rgba(200, 150, 60, 0.35);
+  color: rgba(200, 150, 60, 0.92);
+  transform: translateY(-1px);
 }
 
 .yc-tilt-hero + .yc-tilt-body {
@@ -954,13 +984,22 @@ html.rp-dark [data-route^="/guide/prompt-engineering/prompt-structure"] .rp-doc-
 
   .yc-tilt-hero--plain .yc-tilt-hero__layout {
     grid-template-columns: 1fr;
-    padding: 8px 0 0;
+    padding: 18px 0 12px;
+    padding-right: 0;
   }
   .yc-tilt-hero--plain .yc-tilt-hero__stage {
-    min-height: 240px;
+    display: none;
   }
   .yc-tilt-hero--plain .yc-tilt-hero__img {
-    width: 320px;
+    display: none;
+  }
+  .yc-tilt-hero--plain .yc-tilt-hero__bg::after {
+    display: none;
+  }
+  .yc-tilt-hero__plain-img {
+    right: 18px;
+    width: 240px;
+    opacity: 0.95;
   }
 }
 
@@ -977,6 +1016,14 @@ html.rp-dark [data-route^="/guide/prompt-engineering/prompt-structure"] .rp-doc-
   }
   .yc-tilt-hero__stage {
     height: 260px;
+  }
+  .yc-tilt-hero--plain .yc-tilt-hero__bg::after {
+    display: none;
+  }
+  .yc-tilt-hero__plain-img {
+    right: 16px;
+    width: 200px;
+    opacity: 0.92;
   }
 }
 

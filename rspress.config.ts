@@ -48,6 +48,11 @@ export default defineConfig({
   
   // SSG-MD 配置（AI-native）
   llms: true,
+  markdown: {
+    link: {
+      autoPrefix: true,
+    },
+  },
   
   // 使用自定义主题
   builderConfig: {

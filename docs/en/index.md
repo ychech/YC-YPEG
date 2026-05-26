@@ -13,7 +13,7 @@ hero:
       text: View Guide
       link: /en/guide/prompt-engineering/text-generation-params
   image:
-    src: /YC-YPEG/assets/brand/rspress-icon.png
+    src: assets/brand/rspress-icon.png
     alt: YC Prompt Guide
 
 features:

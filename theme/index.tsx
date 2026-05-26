@@ -5,11 +5,25 @@ import {
   HomeFooter,
   HomeHero,
   PackageManagerTabs,
+  getCustomMDXComponent as getCustomMDXComponentOriginal,
 } from '@rspress/core/theme-original';
 import { useFrontmatter, usePage } from '@rspress/core/runtime';
 import { useEffect, useState } from 'react';
 import { HeroMotion } from './components/HeroMotion';
 import { useHead } from '@unhead/react';
+
+const baseUrlRaw = ((import.meta as any).env?.BASE_URL as string | undefined) || '/';
+const baseUrl = baseUrlRaw.endsWith('/') ? baseUrlRaw : `${baseUrlRaw}/`;
+const withBase = (url?: string) => {
+  if (!url) return url;
+  if (url.startsWith('#')) return url;
+  if (url.startsWith('mailto:') || url.startsWith('tel:')) return url;
+  if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:')) return url;
+  if (url.startsWith('blob:')) return url;
+  if (url.startsWith(baseUrl)) return url;
+  if (url.startsWith('/')) return `${baseUrl}${url.slice(1)}`;
+  return `${baseUrl}${url}`;
+};
 
 const themes = {
   blackgold: { brand: '#C89A3C', light: '#E9C46A', dark: '#8C5A1C', name: '黑金' },
@@ -316,8 +330,8 @@ function HomeLayout(homeProps: any) {
             <div className="yc-home-tiles__grid">
               {tileFeatures.map((f: any) => {
                 return (
-                  <a key={f.title} href={f.link || '#'} className="yc-tile yc-reveal">
-                    {f.icon ? <img className="yc-tile__icon" src={f.icon} alt="" /> : null}
+                  <a key={f.title} href={withBase(f.link || '#')} className="yc-tile yc-reveal">
+                    {f.icon ? <img className="yc-tile__icon" src={withBase(f.icon)} alt="" /> : null}
                     <div className="yc-tile__title">{f.title}</div>
                     <div className="yc-tile__desc">{f.details}</div>
                   </a>
@@ -338,14 +352,14 @@ function HomeLayout(homeProps: any) {
                 return (
                   <a
                     key={f.title}
-                    href={f.link}
+                    href={withBase(f.link)}
                     className="yc-guide-card"
-                    style={{ '--yc-guide-card-bg': `url('${f.icon}')` } as any}
+                    style={{ '--yc-guide-card-bg': `url('${withBase(f.icon)}')` } as any}
                   >
                     <div className="yc-guide-card__bg" />
                     <div className="yc-guide-card__content">
                       <div className="yc-guide-card__icon">
-                        <img src={f.icon} alt="" />
+                        <img src={withBase(f.icon)} alt="" />
                       </div>
                       <div className="yc-guide-card__title">{f.title}</div>
                       <div className="yc-guide-card__desc">{f.details}</div>
@@ -370,10 +384,10 @@ function Layout(props: any) {
       'data-page-type': page.pageType,
     },
     link: [
-      { rel: 'icon', href: '/YC-YPEG/assets/brand/logo.png?v=1' },
-      { rel: 'shortcut icon', href: '/YC-YPEG/assets/brand/logo.png?v=1' },
-      { rel: 'apple-touch-icon', href: '/YC-YPEG/assets/brand/apple-touch-icon.png?v=1' },
-      { rel: 'manifest', href: '/YC-YPEG/site.webmanifest' },
+      { rel: 'icon', href: `${baseUrl}assets/brand/logo.png?v=1` },
+      { rel: 'shortcut icon', href: `${baseUrl}assets/brand/logo.png?v=1` },
+      { rel: 'apple-touch-icon', href: `${baseUrl}assets/brand/apple-touch-icon.png?v=1` },
+      { rel: 'manifest', href: `${baseUrl}site.webmanifest` },
     ],
     meta: [{ name: 'theme-color', content: '#0B0B0B' }],
   });
@@ -393,4 +407,24 @@ function Layout(props: any) {
 }
 
 export { Layout };
+export function getCustomMDXComponent() {
+  const components = getCustomMDXComponentOriginal();
+  const Img = (props: any) => {
+    const src =
+      typeof props?.src === 'string' && props.src.startsWith('/') ? withBase(props.src) : props?.src;
+    const C = (components as any).img as any;
+    return C ? <C {...props} src={src} /> : <img {...props} src={src} />;
+  };
+  const A = (props: any) => {
+    const href =
+      typeof props?.href === 'string' && props.href.startsWith('/') ? withBase(props.href) : props?.href;
+    const C = (components as any).a as any;
+    return C ? <C {...props} href={href} /> : <a {...props} href={href} />;
+  };
+  return {
+    ...(components as any),
+    img: Img,
+    a: A,
+  };
+}
 export * from '@rspress/core/theme-original';

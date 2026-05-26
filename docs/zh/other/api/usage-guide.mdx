@@ -1,0 +1,110 @@
+---
+title: 使用教程（目录结构与维护）
+---
+
+# 使用教程（目录结构与维护）
+
+这份文档用于两件事：
+
+1) 快速理解本项目目录结构（内容在哪、资源在哪、主题在哪）；  
+2) 按统一规范维护文档、图片与更新日志，避免 404、避免“改一次全站崩”。
+
+## 1. 目录结构（你最常用到的部分）
+
+```
+rspress-docs-template/
+├─ rspress.config.ts            # 站点配置入口（base、语言、主题、构建配置）
+├─ package.json                 # 脚本：dev / build / preview
+├─ scripts/                     # 构建前脚本（如 sanitize-inline-colors）
+├─ theme/                       # 自定义主题（React 组件、首页、全局 head 等）
+│  └─ components/               # 自定义组件（TiltHero、HeroMotion 等）
+└─ docs/                        # 文档内容根目录（由 rspress.config.ts 的 root 指定）
+   ├─ styles/custom.css         # 全站自定义样式（含专题页 Hero、移动端适配）
+   ├─ public/                   # 静态资源根（构建后以 /xxx 方式访问）
+   │  ├─ assets/
+   │  │  ├─ brand/              # logo、icon、manifest 相关
+   │  │  ├─ home/               # 首页 mascot
+   │  │  └─ icons/              # 导航与专题页图标（小狐狸系列）
+   │  ├─ prompt-assets/         # 提示词技巧配图（pt-01…）
+   │  ├─ prompt-structure/      # 提示词结构配图（ps-01…）
+   │  └─ site.webmanifest
+   ├─ zh/                       # 中文内容
+   │  ├─ guide/                 # 提示词指南主内容
+   │  ├─ update/                # 更新日志（建议一条更新一个文件）
+   │  └─ other/api/             # 站点实现/维护类文档（本文件所在位置）
+   └─ en/                       # 英文内容
+      ├─ guide/
+      └─ update/
+```
+
+## 2. 本地开发与构建
+
+### 2.1 安装依赖
+
+```bash
+npm install
+```
+
+### 2.2 本地开发
+
+```bash
+npm run dev
+```
+
+注意：本站点配置了 `base: /YC-YPEG/`，所以本地默认入口通常是：
+
+- `/YC-YPEG/`
+
+### 2.3 生产构建与预览
+
+```bash
+npm run build
+npm run preview
+```
+
+构建产物输出在 `doc_build/`（生成物，不要手改）。
+
+## 3. 写文档的推荐结构（避免内容跑偏）
+
+### 3.1 指南页的两层结构
+
+- 专题落地页：`docs/zh/guide/.../xxx/index.mdx`（统一风格：标题、简介、入口导航）
+- 详情页：`docs/zh/guide/.../xxx/notes.md`（更长的内容、可配侧边栏）
+
+### 3.2 链接写法（避免 404）
+
+- 站内页面：用站内绝对路径，例如：`/guide/prompt-engineering/`
+- 静态资源：来自 `docs/public/`，用 `/` 开头访问，例如：`/assets/icons/fox-work.png`
+
+## 4. 图片与静态资源维护规范（重点）
+
+### 4.1 放置位置
+
+- 站点品牌与通用图标：`docs/public/assets/brand`、`docs/public/assets/icons`
+- 首页相关：`docs/public/assets/home`
+- 内容配图（提示技巧/结构）：`docs/public/prompt-assets`、`docs/public/prompt-structure`
+
+### 4.2 命名规范
+
+- `prompt-assets`：`pt-01`、`pt-02` …  
+- `prompt-structure`：`ps-01`、`ps-02` …
+- icons：用英文语义命名（例如 `fox-work.png`），避免中文文件名导致跨平台问题。
+
+### 4.3 移动/重命名的正确姿势
+
+1) 先全局搜索当前图片路径引用（避免改完 404）  
+2) 再做移动/重命名（推荐用 `git mv` 保留历史）  
+3) 最后统一替换引用，并运行 `npm run build` 验证
+
+## 5. 更新日志怎么写（一个日期一个文件）
+
+### 5.1 新增一条更新（中文）
+
+1) 新建：`docs/zh/update/YYYY-MM-DD.mdx`  
+2) 把新文件加到：`docs/zh/update/_meta.json`（放最上面，表示最新）  
+3) 如需让导航默认跳到最新：更新 `docs/zh/_nav.json` 的更新日志链接  
+4) 运行 `npm run build` 验证构建通过
+
+### 5.2 英文更新（可选）
+
+如需英文同步：在 `docs/en/update/` 下创建对应文件并更新其 `_meta.json`。
