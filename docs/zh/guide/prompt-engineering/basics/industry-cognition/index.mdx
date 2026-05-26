@@ -15,30 +15,42 @@ import { TiltHero } from '@theme/components/TiltHero';
 />
 
 <div className="yc-tilt-body">
-  <h2 className="yc-tilt-body__h2">这份指南解决什么</h2>
+  <h2 className="yc-tilt-body__h2">行业认知：你到底在解决什么问题</h2>
   <ul className="yc-tilt-body__list">
-    <li>让输出更稳定：用结构、约束、示例，把模型拉回可控区间</li>
-    <li>让协作更顺畅：统一模板与格式，减少歧义与返工</li>
-    <li>让迭代更工程化：用评估集与回归流程，避免“越改越差”</li>
+    <li>把“业务目标”翻译成“模型可执行的任务”：输入是什么、输出要什么、边界在哪里</li>
+    <li>把“偶尔好用”变成“稳定可复用”：让同一类问题在不同人、不同场景下都能跑通</li>
+    <li>把“灵感试错”变成“工程交付”：可评估、可回归、可迭代，而不是凭感觉改提示</li>
   </ul>
 
-  <h2 className="yc-tilt-body__h2" style={{ marginTop: 22 }}>
-    推荐阅读顺序
-  </h2>
+  <h2 className="yc-tilt-body__h2" style={{ marginTop: 22 }}>你在团队里的位置（常见协作链路）</h2>
+  <ul className="yc-tilt-body__list">
+    <li>上游：产品/业务/运营给目标与约束，数据/法务给合规边界与风险点</li>
+    <li>中游：你把任务拆解成可执行流程（提示、工具、规则、评估），并定义验收口径</li>
+    <li>下游：研发把流程系统化，测试/质检做回归，业务拿结果上线并持续反馈</li>
+  </ul>
+
+  <h2 className="yc-tilt-body__h2" style={{ marginTop: 22 }}>交付物长什么样</h2>
+  <ul className="yc-tilt-body__list">
+    <li>任务定义：目标、输入/输出、约束、失败判定与兜底策略</li>
+    <li>提示与模板：可复用的 Prompt 结构、变量约定、示例集与错误示例</li>
+    <li>评估体系：样本集、指标、对照实验、回归用例与版本记录</li>
+  </ul>
+
+  <h2 className="yc-tilt-body__h2" style={{ marginTop: 22 }}>入门路径（建议顺序）</h2>
   <ol className="yc-tilt-body__list">
     <li>
       <a className="rp-link" href="/YC-YPEG/guide/prompt-engineering/text-generation-params">
-        文本生成控制参数
+        文本生成控制参数：先理解“随机性/稳定性”怎么被控制
       </a>
     </li>
     <li>
       <a className="rp-link" href="/YC-YPEG/guide/prompt-engineering/prompt-structure">
-        提示词结构
+        提示词结构：用结构化表达把任务说明白
       </a>
     </li>
     <li>
       <a className="rp-link" href="/YC-YPEG/guide/prompt-engineering/evaluation-and-iteration">
-        评估与迭代
+        评估与迭代：用评估集和回归让效果“做稳”
       </a>
     </li>
   </ol>

@@ -13,27 +13,60 @@ import { TiltHero } from '@theme/components/TiltHero';
 />
 
 <div className="yc-tilt-body">
-  <p className="yc-landing-hero__lead">
-    当你开始让模型接入工具、检索、业务系统，“提示词”就从一句话升级成一套工作流。与此同时，安全与合规会成为真正的工程门槛。
-  </p>
+  <h2 className="yc-tilt-body__h2">未来创新的核心变化</h2>
+  <ul className="yc-tilt-body__list">
+    <li>从“提示”走向“系统”：可观测、可治理、可回滚，才能规模化落地</li>
+    <li>从“单轮生成”走向“长链路任务”：检索、工具、流程编排与状态管理</li>
+    <li>从“效果优先”走向“风险可控”：合规、安全、权限与审计成为必选项</li>
+  </ul>
 
-  <div className="yc-tilt-body__grid" style={{ marginTop: 18 }}>
+  <h2 className="yc-tilt-body__h2" style={{ marginTop: 22 }}>值得关注的创新方向</h2>
+  <div className="yc-tilt-body__grid">
     <div className="yc-tilt-body__card">
-      <div className="yc-tilt-body__k">工作流</div>
-      <div className="yc-tilt-body__v">把任务拆成步骤，形成可执行的流程</div>
+      <div className="yc-tilt-body__k">Agent 编排</div>
+      <div className="yc-tilt-body__v">角色分工、任务分解、协作与自我校验</div>
     </div>
     <div className="yc-tilt-body__card">
-      <div className="yc-tilt-body__k">Agent</div>
-      <div className="yc-tilt-body__v">角色分工与协作，让复杂任务可控推进</div>
+      <div className="yc-tilt-body__k">工具与检索</div>
+      <div className="yc-tilt-body__v">事实获取、结构化调用、结果落库与追溯</div>
     </div>
     <div className="yc-tilt-body__card">
-      <div className="yc-tilt-body__k">合规</div>
-      <div className="yc-tilt-body__v">边界、权限、审计，从一开始就写进系统</div>
+      <div className="yc-tilt-body__k">长上下文/记忆</div>
+      <div className="yc-tilt-body__v">会话状态、用户偏好、长期任务与上下文治理</div>
     </div>
     <div className="yc-tilt-body__card">
-      <div className="yc-tilt-body__k">安全</div>
-      <div className="yc-tilt-body__v">防注入、防越狱、工具侧硬校验</div>
+      <div className="yc-tilt-body__k">多模态</div>
+      <div className="yc-tilt-body__v">图像/文档/语音输入输出，统一到可评估流程</div>
+    </div>
+    <div className="yc-tilt-body__card">
+      <div className="yc-tilt-body__k">评估自动化</div>
+      <div className="yc-tilt-body__v">指标、回归、对抗测试与持续集成</div>
+    </div>
+    <div className="yc-tilt-body__card">
+      <div className="yc-tilt-body__k">治理与合规</div>
+      <div className="yc-tilt-body__v">权限、审计、数据边界、内容安全与可解释性</div>
     </div>
   </div>
 
+  <h2 className="yc-tilt-body__h2" style={{ marginTop: 22 }}>面向未来的“工程底座”</h2>
+  <ul className="yc-tilt-body__list">
+    <li>结构化输出与硬校验：让系统能解析、能拒绝、能修复</li>
+    <li>可观测性：日志、样本回放、版本对比、问题分桶与定位</li>
+    <li>安全与边界：提示注入/越狱防护，工具侧权限与白名单</li>
+    <li>评估与回归：上线后持续监控漂移，灰度与回滚策略</li>
+  </ul>
+
+  <div style={{ margin: '26px 0 10px' }}>
+    <a className="rp-link" href="/YC-YPEG/guide/prompt-engineering/evaluation-and-iteration">
+      → 查看：评估与迭代
+    </a>
+    <span style={{ margin: '0 10px', opacity: 0.55 }}>|</span>
+    <a className="rp-link" href="/YC-YPEG/guide/prompt-engineering/prompt-security">
+      → 查看：提示词安全
+    </a>
+  </div>
+
+  <div style={{ margin: '0 0 10px' }}>
+    <a href="/YC-YPEG/guide/prompt-engineering/" className="rp-link">← 返回指南概览</a>
+  </div>
 </div>

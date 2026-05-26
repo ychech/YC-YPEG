@@ -13,32 +13,66 @@ import { TiltHero } from '@theme/components/TiltHero';
 />
 
 <div className="yc-tilt-body">
-  <p className="yc-landing-hero__lead">
-    行业拓展关注的不是“学更多技巧”，而是把提示词工程变成可交付的工作方式：围绕场景、流程、验收标准，把提示从一次性问答变成可复用资产。
-  </p>
+  <h2 className="yc-tilt-body__h2">行业拓展的目标</h2>
+  <ul className="yc-tilt-body__list">
+    <li>不是“多学几招”，而是把通用方法落到具体业务：输入是什么、输出要什么、风险在哪里</li>
+    <li>把提示从一次性问答变成资产：模板、变量、示例、回归集、版本记录</li>
+    <li>把效果从“能用”做成“可复用、可评估、可迭代”</li>
+  </ul>
 
-  <div className="yc-tilt-body__grid" style={{ marginTop: 18 }}>
+  <h2 className="yc-tilt-body__h2" style={{ marginTop: 22 }}>选行业/选场景的三问</h2>
+  <ul className="yc-tilt-body__list">
+    <li>任务是否高频且重复：能否用“同一结构”覆盖大量输入</li>
+    <li>验收是否清晰：是否能定义指标、错误类型与兜底策略</li>
+    <li>风险是否可控：合规边界、数据权限、禁止输出是否能明确写进规则</li>
+  </ul>
+
+  <h2 className="yc-tilt-body__h2" style={{ marginTop: 22 }}>落地步骤（从通用到垂直）</h2>
+  <div className="yc-tilt-body__grid">
     <div className="yc-tilt-body__card">
-      <div className="yc-tilt-body__k">场景化</div>
-      <div className="yc-tilt-body__v">围绕业务输入/输出，把问题定义清楚</div>
+      <div className="yc-tilt-body__k">定义任务</div>
+      <div className="yc-tilt-body__v">输入/输出、口径、边界、失败判定</div>
     </div>
     <div className="yc-tilt-body__card">
-      <div className="yc-tilt-body__k">流程化</div>
-      <div className="yc-tilt-body__v">拆解步骤、控制变量、形成稳定产出</div>
+      <div className="yc-tilt-body__k">建领域词表</div>
+      <div className="yc-tilt-body__v">术语、实体、缩写、禁用说法与替代表达</div>
     </div>
     <div className="yc-tilt-body__card">
-      <div className="yc-tilt-body__k">评估化</div>
-      <div className="yc-tilt-body__v">把“感觉好”变成“可回归、可复现”</div>
+      <div className="yc-tilt-body__k">固化格式</div>
+      <div className="yc-tilt-body__v">输出结构、字段、长度上限与兜底返回</div>
     </div>
     <div className="yc-tilt-body__card">
-      <div className="yc-tilt-body__k">资产化</div>
-      <div className="yc-tilt-body__v">沉淀模板与用例，便于复用与协作</div>
+      <div className="yc-tilt-body__k">收集样本</div>
+      <div className="yc-tilt-body__v">典型/极端/对抗样本，建立可回归集合</div>
+    </div>
+    <div className="yc-tilt-body__card">
+      <div className="yc-tilt-body__k">评估迭代</div>
+      <div className="yc-tilt-body__v">指标、错误分桶、对照实验、版本对比</div>
+    </div>
+    <div className="yc-tilt-body__card">
+      <div className="yc-tilt-body__k">资产交付</div>
+      <div className="yc-tilt-body__v">模板 + 示例 + 回归集 + 说明，便于团队复用</div>
     </div>
   </div>
+
+  <h2 className="yc-tilt-body__h2" style={{ marginTop: 22 }}>行业拓展的交付物长什么样</h2>
+  <ul className="yc-tilt-body__list">
+    <li>场景说明：任务定义、输入/输出示例、错误类型与兜底策略</li>
+    <li>提示资产：模板结构、变量约定、正反例、格式规范</li>
+    <li>评估资产：样本集、指标口径、回归用例、版本记录</li>
+  </ul>
 
   <div style={{ margin: '26px 0 10px' }}>
     <a className="rp-link" href="/YC-YPEG/guide/prompt-engineering/prompt-techniques">
       → 查看：常用提示技术
     </a>
+    <span style={{ margin: '0 10px', opacity: 0.55 }}>|</span>
+    <a className="rp-link" href="/YC-YPEG/guide/prompt-engineering/evaluation-and-iteration">
+      → 查看：评估与迭代
+    </a>
+  </div>
+
+  <div style={{ margin: '0 0 10px' }}>
+    <a href="/YC-YPEG/guide/prompt-engineering/" className="rp-link">← 返回指南概览</a>
   </div>
 </div>

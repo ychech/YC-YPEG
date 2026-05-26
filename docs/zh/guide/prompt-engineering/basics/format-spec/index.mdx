@@ -13,13 +13,67 @@ import { TiltHero } from '@theme/components/TiltHero';
 />
 
 <div className="yc-tilt-body">
-  <p className="yc-landing-hero__lead">
-    你可以把提示词当作一份“交付协议”：你提供输入，模型交付输出；格式规范让交付变得稳定、可检查、可复用。无论是写方案、写文案、写总结还是接工具链，先把结构定下来，后面再调细节。
-  </p>
+  <h2 className="yc-tilt-body__h2">格式规范是什么</h2>
+  <ul className="yc-tilt-body__list">
+    <li>它是验收标准：用结构而不是情绪描述，定义“什么算合格”</li>
+    <li>它是协作接口：让人、模型、工具链都能稳定读懂与处理</li>
+    <li>它是复用单位：同一模板套不同输入，也能输出同一结构</li>
+  </ul>
 
-  <p className="yc-landing-hero__lead" style={{ marginTop: 12 }}>
-    建议优先固定：标题层级、字段命名、列表/表格结构、语言风格、禁止项，以及失败时的兜底返回格式。
-  </p>
+  <h2 className="yc-tilt-body__h2" style={{ marginTop: 22 }}>优先固定的 6 件事</h2>
+  <div className="yc-tilt-body__grid">
+    <div className="yc-tilt-body__card">
+      <div className="yc-tilt-body__k">结构</div>
+      <div className="yc-tilt-body__v">标题层级/段落顺序/列表或表格</div>
+    </div>
+    <div className="yc-tilt-body__card">
+      <div className="yc-tilt-body__k">字段</div>
+      <div className="yc-tilt-body__v">字段命名、必填/可选、默认值</div>
+    </div>
+    <div className="yc-tilt-body__card">
+      <div className="yc-tilt-body__k">口径</div>
+      <div className="yc-tilt-body__v">单位、时间范围、术语解释、引用来源</div>
+    </div>
+    <div className="yc-tilt-body__card">
+      <div className="yc-tilt-body__k">风格</div>
+      <div className="yc-tilt-body__v">语气、人称、长度上限、是否允许发挥</div>
+    </div>
+    <div className="yc-tilt-body__card">
+      <div className="yc-tilt-body__k">禁止项</div>
+      <div className="yc-tilt-body__v">不能出现的内容、不能做的推断</div>
+    </div>
+    <div className="yc-tilt-body__card">
+      <div className="yc-tilt-body__k">兜底</div>
+      <div className="yc-tilt-body__v">信息不足时返回什么，如何请求补充</div>
+    </div>
+  </div>
+
+  <h2 className="yc-tilt-body__h2" style={{ marginTop: 22 }}>可直接复用的输出骨架（示例）</h2>
+  <pre style={{ marginTop: 12, padding: 14, borderRadius: 14, background: 'var(--rp-home-feature-bg)', border: '1px solid var(--rp-c-divider-light)', overflowX: 'auto' }}>{`# 结论
+- ...
+
+# 依据
+- ...
+
+# 风险与限制
+- ...
+
+# 下一步
+- ...`}</pre>
+
+  <h2 className="yc-tilt-body__h2" style={{ marginTop: 22 }}>与结构化提示的关系（推荐搭配阅读）</h2>
+  <ul className="yc-tilt-body__list">
+    <li>
+      <a className="rp-link" href="/YC-YPEG/guide/prompt-engineering/prompt-structure">
+        提示词结构：把格式写成模板，把变量写成占位符
+      </a>
+    </li>
+    <li>
+      <a className="rp-link" href="/YC-YPEG/guide/prompt-engineering/evaluation-and-iteration">
+        评估与迭代：用回归集验证“格式稳定 + 内容达标”
+      </a>
+    </li>
+  </ul>
 
   <div style={{ margin: '26px 0 10px' }}>
     <a href="/YC-YPEG/guide/prompt-engineering/" className="rp-link">← 返回指南概览</a>

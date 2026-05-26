@@ -1,9 +1,11 @@
 import * as path from 'node:path';
 import { defineConfig } from '@rspress/core';
 
+const base = '/YC-YPEG/';
+
 export default defineConfig({
   root: path.join(__dirname, 'docs'),
-  base: '/YC-YPEG/',
+  base,
   route: {
     exclude: ['**/components/**', '**/fragments/**'],
   },
@@ -49,6 +51,61 @@ export default defineConfig({
   
   // 使用自定义主题
   builderConfig: {
+    server: {
+      setup: ({ server }: any) => {
+        server.middlewares.use((req: any, res: any, next: any) => {
+          const url = req.url || '/';
+          const pathname = url.split('?')[0] || '/';
+          if (
+            pathname.startsWith(base) ||
+            pathname.startsWith('/@') ||
+            pathname.startsWith('/rsbuild-dev-server')
+          ) {
+            next();
+            return;
+          }
+
+          const shouldRedirect =
+            pathname === '/' ||
+            pathname === '/en/' ||
+            pathname === '/license' ||
+            pathname.startsWith('/guide/') ||
+            pathname.startsWith('/en/guide/') ||
+            pathname.startsWith('/update/') ||
+            pathname.startsWith('/en/update/') ||
+            pathname.startsWith('/other/');
+          if (!shouldRedirect) {
+            next();
+            return;
+          }
+
+          const lastSegment = pathname.split('/').pop() || '';
+          if (lastSegment.includes('.') && !lastSegment.endsWith('.html')) {
+            next();
+            return;
+          }
+
+          const method = req.method || 'GET';
+          if (method !== 'GET' && method !== 'HEAD') {
+            next();
+            return;
+          }
+
+          const accept = req.headers.accept || '';
+          const fetchDest = req.headers['sec-fetch-dest'] || '';
+          const isDocumentRequest = fetchDest === 'document' || accept.includes('text/html');
+          if (!isDocumentRequest) {
+            next();
+            return;
+          }
+
+          const target = base + (url.startsWith('/') ? url.slice(1) : url);
+          res.statusCode = 302;
+          res.setHeader('Location', target);
+          res.end();
+        });
+      },
+    },
     source: {
       alias: {
         '@theme': path.join(__dirname, 'theme'),

@@ -48,7 +48,4 @@ npm run build
 npm run preview
 ```
 
-## 部署到 GitHub Pages
 
-- 仓库：Settings → Pages → Source 选择 `GitHub Actions`
-- 推送到 `main` 分支后会自动构建并发布

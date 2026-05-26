@@ -13,32 +13,71 @@ import { TiltHero } from '@theme/components/TiltHero';
 />
 
 <div className="yc-tilt-body">
-  <p className="yc-landing-hero__lead">
-    当任务开始接入外部工具、系统和数据源时，仅靠“想得更好”不够，需要把推理与动作拆开，形成可执行、可校验的工作流。
-  </p>
+  <h2 className="yc-tilt-body__h2">实战演练练什么</h2>
+  <ul className="yc-tilt-body__list">
+    <li>练稳定性：同一类输入在不同时间/不同人使用时，输出结构与质量都稳定</li>
+    <li>练可评估：把“看起来不错”改成“指标与错误类型清晰可统计”</li>
+    <li>练可迭代：每次改动都有对照与回归，避免越改越差</li>
+  </ul>
 
-  <div className="yc-tilt-body__grid" style={{ marginTop: 18 }}>
+  <h2 className="yc-tilt-body__h2" style={{ marginTop: 22 }}>一套可复用的演练流程</h2>
+  <div className="yc-tilt-body__grid">
     <div className="yc-tilt-body__card">
-      <div className="yc-tilt-body__k">思考</div>
-      <div className="yc-tilt-body__v">把推理步骤写清楚，避免跳步与遗漏</div>
+      <div className="yc-tilt-body__k">1. 定义目标</div>
+      <div className="yc-tilt-body__v">输出结构、质量标准、失败判定与兜底格式</div>
     </div>
     <div className="yc-tilt-body__card">
-      <div className="yc-tilt-body__k">行动</div>
-      <div className="yc-tilt-body__v">按需调用工具获取事实，减少臆测</div>
+      <div className="yc-tilt-body__k">2. 建样本集</div>
+      <div className="yc-tilt-body__v">典型样本 + 边界样本 + 反例/对抗样本</div>
     </div>
     <div className="yc-tilt-body__card">
-      <div className="yc-tilt-body__k">校验</div>
-      <div className="yc-tilt-body__v">结构化输出 + 系统侧校验，稳定可复用</div>
+      <div className="yc-tilt-body__k">3. 跑基线</div>
+      <div className="yc-tilt-body__v">记录当前版本表现，为迭代提供对照</div>
     </div>
     <div className="yc-tilt-body__card">
-      <div className="yc-tilt-body__k">迭代</div>
-      <div className="yc-tilt-body__v">用回归集守住质量基线，避免越改越差</div>
+      <div className="yc-tilt-body__k">4. 分桶问题</div>
+      <div className="yc-tilt-body__v">按错误类型归类：遗漏、胡编、格式错、越界等</div>
+    </div>
+    <div className="yc-tilt-body__card">
+      <div className="yc-tilt-body__k">5. 小步改动</div>
+      <div className="yc-tilt-body__v">一次只改一个变量：结构/约束/示例/提示技术</div>
+    </div>
+    <div className="yc-tilt-body__card">
+      <div className="yc-tilt-body__k">6. 回归验证</div>
+      <div className="yc-tilt-body__v">新增样本进回归集，守住质量基线</div>
+    </div>
+    <div className="yc-tilt-body__card">
+      <div className="yc-tilt-body__k">7. 上线监控</div>
+      <div className="yc-tilt-body__v">采样质检、漂移预警、灰度与版本回滚策略</div>
+    </div>
+    <div className="yc-tilt-body__card">
+      <div className="yc-tilt-body__k">8. 复盘沉淀</div>
+      <div className="yc-tilt-body__v">形成可复用资产：模板、用例、指标与记录</div>
     </div>
   </div>
 
+  <h2 className="yc-tilt-body__h2" style={{ marginTop: 22 }}>演练用例怎么选（别只用“顺眼”的样本）</h2>
+  <ul className="yc-tilt-body__list">
+    <li>覆盖真实分布：高频输入、长尾输入、噪声输入都要有</li>
+    <li>覆盖边界条件：信息不足、冲突信息、极端长度、敏感话题触发</li>
+    <li>覆盖对抗场景：提示注入、诱导越界、格式破坏、绕过约束</li>
+  </ul>
+
   <div style={{ margin: '26px 0 10px' }}>
-    <a className="rp-link" href="/YC-YPEG/guide/prompt-engineering/advanced-techniques/">
-      → 查看 ReAct 与工具调用细节
+    <a className="rp-link" href="/YC-YPEG/guide/prompt-engineering/evaluation-and-iteration">
+      → 查看：评估与迭代（演练的核心方法）
     </a>
+    <span style={{ margin: '0 10px', opacity: 0.55 }}>|</span>
+    <a className="rp-link" href="/YC-YPEG/guide/prompt-engineering/prompt-security">
+      → 查看：提示词安全（对抗与边界）
+    </a>
+    <span style={{ margin: '0 10px', opacity: 0.55 }}>|</span>
+    <a className="rp-link" href="/YC-YPEG/guide/prompt-engineering/advanced-techniques/">
+      → 查看：高级技术（需要时再引入工具/Agent）
+    </a>
+  </div>
+
+  <div style={{ margin: '0 0 10px' }}>
+    <a href="/YC-YPEG/guide/prompt-engineering/" className="rp-link">← 返回指南概览</a>
   </div>
 </div>
