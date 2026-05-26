@@ -4,6 +4,13 @@
 
 - 在线访问（GitHub Pages）：https://ychech.github.io/YC-YPEG/
 
+## 主要内容
+
+- 提示词工程的知识地图与学习路径（指南概览）
+- 技术结构基石：文本生成参数、提示词结构、评估与迭代
+- 思维能力设计：常用/进阶/扩展提示技术，以及六大整合
+- 安全突破防守：幻觉与校验、提示词安全、参考资料
+
 ## License / 版权声明
 
 本文档仅供免费阅读、学习与非商业分享，未经作者书面许可，禁止复制售卖、收费传播、商业使用。转载时必须完整保留作者及来源声明。版权所有 © 2026 逸尘，保留所有权利。
@@ -41,11 +48,7 @@ npm run build
 npm run preview
 ```
 
-## 部署到 GitHub Pages（原理与要点）
+## 部署到 GitHub Pages
 
-- 站点部署在子路径 `https://ychech.github.io/YC-YPEG/`，因此在 [rspress.config.ts](file:///Users/yc/Desktop/test/y/rspress-docs-template/rspress.config.ts) 配置了：
-  - `base: '/YC-YPEG/'`（让路由与静态资源带正确前缀）
-- 每次推送到 `main` 分支，会触发工作流 [.github/workflows/deploy.yml](file:///Users/yc/Desktop/test/y/rspress-docs-template/.github/workflows/deploy.yml)：
-  - `npm ci` → `npm run build` → 上传 `doc_build/` → 发布到 Pages
-- GitHub 仓库设置（只需要做一次）：
-  - Settings → Pages → Source 选择 `GitHub Actions`
+- 仓库：Settings → Pages → Source 选择 `GitHub Actions`
+- 推送到 `main` 分支后会自动构建并发布
