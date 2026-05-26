@@ -23,10 +23,10 @@ export default defineConfig({
   ],
   lang: 'zh',
   globalStyles: path.join(__dirname, 'docs', 'styles', 'custom.css'),
-  icon: '/cs2.png',
+  icon: '/assets/brand/logo.png',
   logo: {
-    light: '/cs2.png',
-    dark: '/cs2.png',
+    light: '/assets/brand/logo.png',
+    dark: '/assets/brand/logo.png',
   },
   logoText: 'YPEG',
   logoHref: '/',

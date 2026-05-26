@@ -1,6 +1,6 @@
 
 
-![画板](/prompt-assets/1779583021567-a3efe9d2-43a4-43e4-af29-1e0d16025f8f.jpeg)
+![画板](/prompt-assets/pt-25.jpeg)
 
 ## 一、什么是模型幻觉
 <font >模型幻觉是指模型生成了与事实不符、逻辑断裂、脱离上下文的内容，但是其本质上是统计概率驱动的合理猜测。</font>
@@ -240,9 +240,9 @@ _<font style="color:rgb(66, 70, 80)">--吴恩达讲 prompt</font>_
 
 部件销售。[2]</example>如果文档无法回答该问题，需说明这一点。
 
-<img src="/prompt-assets/1773977434144-3c69fde1-be81-43ac-ba96-3b4437b75d89.png" width="881" title="" crop="0,0,1,1" id="tqyz4" class="ne-image">
+<img src="/prompt-assets/pt-09.png" width="881" title="" crop="0,0,1,1" id="tqyz4" class="ne-image">
 
-<img src="/prompt-assets/1773977446071-1c60a04f-8955-4ed3-a82a-10f9aaa40aba.png" width="985" title="" crop="0,0,1,1" id="gPoCE" class="ne-image">
+<img src="/prompt-assets/pt-10.png" width="985" title="" crop="0,0,1,1" id="gPoCE" class="ne-image">
 
 ## 3.4、理解幻觉
 享受幻觉，理解幻觉的特点和应对方法,享受幻觉带来的创意灵感

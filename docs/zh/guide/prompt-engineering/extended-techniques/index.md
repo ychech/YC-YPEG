@@ -28,7 +28,7 @@
 ## 1.2、示例
 <font style="background-color:rgba(255, 255, 255, 0)">下图显示了方向性刺激提示与标准提示的比较。</font>
 
-<img src="/prompt-assets/1768703192241-bf1e56e7-1d77-4e83-bc8e-0220b99e15f3.png" width="1075" title="" crop="0,0,1,1" id="u2162ae36" class="ne-image">这张图是一个**AI文本摘要效果对比实验**，它展示了两种不同提示策略在生成文章摘要时的表现差异。
+<img src="/prompt-assets/pt-02.png" width="1075" title="" crop="0,0,1,1" id="u2162ae36" class="ne-image">这张图是一个**AI文本摘要效果对比实验**，它展示了两种不同提示策略在生成文章摘要时的表现差异。
 
 从上往下
 
@@ -144,7 +144,7 @@ Article: (CNN) For the first time in eight years... [原文省略]
 
 这张图展示了一个**多模态思维链（Multimodal Chain-of-Thought, Multimodal CoT）**任务的典型例子，它结合了视觉和语言信息，让模型像人一样一步步推理出答案。
 
-<img src="/prompt-assets/1768814479170-65589bec-9d40-4a5d-95aa-b6eea0071191.png" width="912" title="" crop="0,0,1,1" id="ua3b73ca0" class="ne-image">
+<img src="/prompt-assets/pt-08.png" width="912" title="" crop="0,0,1,1" id="ua3b73ca0" class="ne-image">
 
 
 
@@ -184,7 +184,7 @@ Article: (CNN) For the first time in eight years... [原文省略]
 
 <font style="background-color:rgba(255, 255, 255, 0)">【程序思维化】</font>
 
-<img src="/prompt-assets/1768706620833-4c805971-a554-41c7-9416-5a2b079a9ab8.png" width="656" title="" crop="0,0,1,1" id="u54e2b8d6" class="ne-image">
+<img src="/prompt-assets/pt-03.png" width="656" title="" crop="0,0,1,1" id="u54e2b8d6" class="ne-image">
 
 这张图对比了两种解决数学问题的 AI 方法：
 
@@ -265,7 +265,7 @@ Article: (CNN) For the first time in eight years... [原文省略]
 
 <font style="background-color:rgba(255, 255, 255, 0.06)">“感知 - 行动 - 反思 - 学习”</font>
 
-<img src="/prompt-assets/1768708273414-ac244551-3b53-40dc-8c16-62b5c6f46932.png" width="939" title="" crop="0,0,1,1" id="HrBiv" class="ne-image">
+<img src="/prompt-assets/pt-05.png" width="939" title="" crop="0,0,1,1" id="HrBiv" class="ne-image">
 
 上图中<font style="background-color:rgba(0, 0, 0, 0)">整体结构</font>
 
@@ -303,7 +303,7 @@ Article: (CNN) For the first time in eight years... [原文省略]
 
 
 
-![画板](/prompt-assets/1768814208978-50625cc9-a873-4942-98ae-7f9c5587face.jpeg)
+![画板](/prompt-assets/pt-06.jpeg)
 
 <font style="background-color:rgba(0, 0, 0, 0)">顺序就是：</font>
 
@@ -356,7 +356,7 @@ Article: (CNN) For the first time in eight years... [原文省略]
 
 <font style="background-color:rgba(0, 0, 0, 0)">自我反思（Refelxion）通过引入自我评估、自我反思和记忆组件来拓展 ReAct 框架。</font>
 
-<img src="/prompt-assets/1768814368619-94e8282b-afec-47d0-9e00-f42d852dc1c0.png" width="1286" title="" crop="0,0,1,1" id="rdFMi" class="ne-image">
+<img src="/prompt-assets/pt-07.png" width="1286" title="" crop="0,0,1,1" id="rdFMi" class="ne-image">
 
 <font style="background-color:rgba(0, 0, 0, 0)">整体框架逻辑</font>
 
@@ -393,6 +393,6 @@ Article: (CNN) For the first time in eight years... [原文省略]
 
 ---
 
-<img src="/prompt-assets/1775551612004-4e5ac682-36fd-4839-86d4-08103a9b57b0.png" width="2732" title="" crop="0,0,1,1" id="ayQmz" class="ne-image">
+<img src="/prompt-assets/pt-23.png" width="2732" title="" crop="0,0,1,1" id="ayQmz" class="ne-image">
 
 <font style="background-color:rgba(0, 0, 0, 0)">这张总结揭示了当前大语言模型的一个重要能力突破：</font>**<font style="background-color:rgba(0, 0, 0, 0)">不再是单次生成结果，而是通过 “自我反思” 和多轮迭代，主动修正错误、优化输出</font>**<font style="background-color:rgba(0, 0, 0, 0)">。这种闭环机制极大提升了模型在复杂任务中的可靠性，也是迈向通用人工智能（AGI）的关键一步。</font>

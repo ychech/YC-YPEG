@@ -81,7 +81,7 @@ export function HeroMotion() {
           </div>
         </div>
       </div>
-      <img className="yc-hero-motion__mascot" src="YC-fox.png" alt="YPEG" draggable={false} />
+      <img className="yc-hero-motion__mascot" src="assets/home/mascot.png" alt="YPEG" draggable={false} />
     </div>
   );
 }

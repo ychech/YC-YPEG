@@ -179,7 +179,7 @@ title: 评估与迭代（从“能用”到“稳定”）
 
 <font style="color:rgb(255, 255, 255)">都是如果回答是中性，则错误，需要按照示例加上【】</font>
 
-<img src="/prompt-assets/1767665490658-3c1dc621-37fa-4286-85a3-641c7f7a9271.png" width="890" title="" crop="0,0,1,1" id="u9f00ae4d" class="ne-image">
+<img src="/prompt-assets/pt-01.png" width="890" title="" crop="0,0,1,1" id="u9f00ae4d" class="ne-image">
 
 
 
@@ -296,7 +296,7 @@ title: 评估与迭代（从“能用”到“稳定”）
 
 <font style="background-color:rgba(255, 255, 255, 0)"></font>
 
-<img src="/prompt-assets/1774856663107-537eb294-b7ff-45ac-81e6-0855be7cc1ca.png" width="956" title="" crop="0,0,1,1" id="u92543c50" class="ne-image">
+<img src="/prompt-assets/pt-12.png" width="956" title="" crop="0,0,1,1" id="u92543c50" class="ne-image">
 
 
 
