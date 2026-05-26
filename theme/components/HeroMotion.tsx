@@ -4,6 +4,8 @@ export function HeroMotion() {
   const ref = useRef<HTMLDivElement | null>(null);
   const rafRef = useRef<number | null>(null);
   const lastRef = useRef({ x: 0, y: 0 });
+  const baseUrlRaw = ((import.meta as any).env?.BASE_URL as string | undefined) || '/';
+  const baseUrl = baseUrlRaw.endsWith('/') ? baseUrlRaw : `${baseUrlRaw}/`;
 
   useEffect(() => {
     const el = ref.current;
@@ -81,7 +83,13 @@ export function HeroMotion() {
           </div>
         </div>
       </div>
-      <img className="yc-hero-motion__mascot" src="assets/home/mascot.png" alt="YPEG" draggable={false} />
+      <img
+        className="yc-hero-motion__mascot"
+        src={`${baseUrl}assets/home/mascot.png`}
+        alt=""
+        aria-hidden="true"
+        draggable={false}
+      />
     </div>
   );
 }

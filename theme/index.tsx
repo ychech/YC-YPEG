@@ -14,16 +14,42 @@ import { useHead } from '@unhead/react';
 
 const baseUrlRaw = ((import.meta as any).env?.BASE_URL as string | undefined) || '/';
 const baseUrl = baseUrlRaw.endsWith('/') ? baseUrlRaw : `${baseUrlRaw}/`;
+const baseNoLeadingSlash = baseUrl.replace(/^\/+/, '');
 const withBase = (url?: string) => {
   if (!url) return url;
   if (url.startsWith('#')) return url;
   if (url.startsWith('mailto:') || url.startsWith('tel:')) return url;
   if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:')) return url;
   if (url.startsWith('blob:')) return url;
+  if (baseNoLeadingSlash && url.startsWith(baseNoLeadingSlash)) return `/${url}`;
   if (url.startsWith(baseUrl)) return url;
   if (url.startsWith('/')) return `${baseUrl}${url.slice(1)}`;
   return `${baseUrl}${url}`;
 };
+
+const withTrailingSlash = (url?: string) => {
+  if (!url) return url;
+  const [rawPath, rawHash] = url.split('#', 2);
+  const [pathPart, queryPart] = rawPath.split('?', 2);
+  if (!pathPart) return url;
+  const routePath = pathPart.startsWith(baseUrl) ? `/${pathPart.slice(baseUrl.length)}` : pathPart;
+  const shouldAppendSlash =
+    routePath === '/' ||
+    routePath.startsWith('/guide/') ||
+    routePath.startsWith('/update/') ||
+    routePath.startsWith('/other/') ||
+    routePath === '/en' ||
+    routePath.startsWith('/en/');
+  if (!shouldAppendSlash) return url;
+  const lastSegment = pathPart.split('/').filter(Boolean).pop() || '';
+  const hasFileExt = lastSegment.includes('.');
+  if (pathPart.endsWith('/') || pathPart.endsWith('.html') || hasFileExt) return url;
+  const nextPath = `${pathPart}/`;
+  const nextRaw = queryPart ? `${nextPath}?${queryPart}` : nextPath;
+  return rawHash ? `${nextRaw}#${rawHash}` : nextRaw;
+};
+
+const withBaseLink = (url?: string) => withTrailingSlash(withBase(url));
 
 const themes = {
   blackgold: { brand: '#C89A3C', light: '#E9C46A', dark: '#8C5A1C', name: '黑金' },
@@ -242,25 +268,25 @@ function HomeLayout(homeProps: any) {
     {
       title: '常用提示技术',
       details: '零样本 / 少样本 / CoT 等常用技巧与适用场景。',
-      icon: 'assets/icons/nav-1.png',
+      icon: 'assets/icons/fox-creative-writing.png',
       link: 'guide/prompt-engineering/prompt-techniques',
     },
     {
       title: 'ReAct（工具调用）',
       details: '把思考和动作分离，适配工具与外部系统。',
-      icon: 'assets/icons/nav-2.png',
-      link: 'guide/prompt-engineering/basics/practical-exercise/',
+      icon: 'assets/icons/fox-ai-creative.png',
+      link: 'guide/prompt-engineering/advanced-techniques/',
     },
     {
       title: 'DSP（方向性刺激）',
       details: '用方向性线索提升摘要/改写/抽取的贴合度与稳定性。',
-      icon: 'assets/icons/nav-3.png',
+      icon: 'assets/icons/fox-academic.png',
       link: 'guide/prompt-engineering/extended-techniques/',
     },
     {
       title: '安全与校验',
       details: '提示词注入与防护、幻觉识别与三角验证。',
-      icon: 'assets/icons/nav-4.png',
+      icon: 'assets/icons/fox-work.png',
       link: 'guide/prompt-engineering/prompt-security/',
     },
   ];
@@ -330,7 +356,7 @@ function HomeLayout(homeProps: any) {
             <div className="yc-home-tiles__grid">
               {tileFeatures.map((f: any) => {
                 return (
-                  <a key={f.title} href={withBase(f.link || '#')} className="yc-tile yc-reveal">
+                  <a key={f.title} href={withBaseLink(f.link || '#')} className="yc-tile yc-reveal">
                     {f.icon ? <img className="yc-tile__icon" src={withBase(f.icon)} alt="" /> : null}
                     <div className="yc-tile__title">{f.title}</div>
                     <div className="yc-tile__desc">{f.details}</div>
@@ -346,13 +372,14 @@ function HomeLayout(homeProps: any) {
         <section className="yc-home-section yc-reveal">
           <div className="yc-home-section__container">
             <h2 className="yc-home-section__title">指南导航</h2>
-            <p className="yc-home-section__subtitle">按主题快速进入你需要的章节</p>
+            <p className="yc-home-section__subtitle">精选入口，快速定位到关键章节</p>
+            <div style={{ height: 14 }} />
             <div className="yc-guide-grid">
               {extraFeatures.map((f) => {
                 return (
                   <a
                     key={f.title}
-                    href={withBase(f.link)}
+                    href={withBaseLink(f.link)}
                     className="yc-guide-card"
                     style={{ '--yc-guide-card-bg': `url('${withBase(f.icon)}')` } as any}
                   >
@@ -416,8 +443,7 @@ export function getCustomMDXComponent() {
     return C ? <C {...props} src={src} /> : <img {...props} src={src} />;
   };
   const A = (props: any) => {
-    const href =
-      typeof props?.href === 'string' && props.href.startsWith('/') ? withBase(props.href) : props?.href;
+    const href = typeof props?.href === 'string' ? withBaseLink(props.href) : props?.href;
     const C = (components as any).a as any;
     return C ? <C {...props} href={href} /> : <a {...props} href={href} />;
   };

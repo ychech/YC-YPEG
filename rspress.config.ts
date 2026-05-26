@@ -73,6 +73,7 @@ export default defineConfig({
           const shouldRedirect =
             pathname === '/' ||
             pathname === '/en/' ||
+            pathname === base.slice(0, -1) ||
             pathname === '/license' ||
             pathname.startsWith('/guide/') ||
             pathname.startsWith('/en/guide/') ||
@@ -104,7 +105,15 @@ export default defineConfig({
             return;
           }
 
-          const target = base + (url.startsWith('/') ? url.slice(1) : url);
+          const baseNoTrailingSlash = base.endsWith('/') ? base.slice(0, -1) : base;
+          let target: string;
+          if (pathname === baseNoTrailingSlash) {
+            const queryIndex = url.indexOf('?');
+            const suffix = queryIndex >= 0 ? url.slice(queryIndex) : '';
+            target = `${base}${suffix}`;
+          } else {
+            target = base + (url.startsWith('/') ? url.slice(1) : url);
+          }
           res.statusCode = 302;
           res.setHeader('Location', target);
           res.end();
