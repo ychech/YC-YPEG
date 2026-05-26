@@ -3,6 +3,7 @@ import { defineConfig } from '@rspress/core';
 
 export default defineConfig({
   root: path.join(__dirname, 'docs'),
+  base: '/YC-YPEG/',
   route: {
     exclude: ['**/components/**', '**/fragments/**'],
   },
